@@ -1,0 +1,503 @@
+.onboarding_content {
+    margin-top: calc(var(--g-header-height) + 70px)
+}
+
+.onboarding {
+    width: 100%;
+    user-select: none
+}
+
+.common_container {
+    width: 100%;
+    height: auto;
+    opacity: 1;
+    transition: opacity 300ms;
+}
+
+[onboard-app-quote] {
+    font-size: var(--medium-font-size);
+    line-height: var(--app-line-height);
+    letter-spacing: var(--app-letter-space)
+}
+
+[onboard-app-title] {
+    padding: 10px 0;
+    font-size: var(--extralarge-font-size);
+    font-family: inter_ebold
+}
+
+.wrapper_middle_section {
+    /* padding: 35px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px; */
+}
+
+.wrapper_form_section {
+    margin: auto;
+    width: var(--wrapper-width);
+    max-width: var(--wrapper-width);
+    visibility: hidden;
+    opacity: 0;
+    transform: scale(.9) translateY(-10px);
+    transition: opacity var(--warapper-animation-duration), visibility var(--warapper-animation-duration), transform var(--warapper-animation-duration)
+}
+
+.wrapper_form_active {
+    visibility: visible;
+    opacity: 1;
+    transform: scale(1) translateY(0px);
+    transition: opacity var(--warapper-animation-duration), visibility var(--warapper-animation-duration), transform var(--warapper-animation-duration)
+}
+
+.wrapper_form_section [form-title] {
+    font-size: var(--extralarge-font-size);
+    padding-bottom: 10px
+}
+
+.wrapper_form_section .form_input {
+    width: 100%;
+}
+
+.wrapper_form_section .form_input span {
+    user-select: none;
+    cursor: pointer;
+    list-style: none;
+    color: var(--app-main-color);
+    font-size: 12px;
+    letter-spacing: .02em;
+    line-height: 1;
+    background: no-repeat;
+    white-space: nowrap;
+    font-weight: 400;
+}
+
+.wrapper_form_section .form_input span:hover {
+    text-decoration: underline;
+}
+
+.input_spacing {
+    margin-top: var(--margin-input)
+}
+
+.resend_otp_opt {
+    display: flex;
+    justify-content: center;
+}
+
+.wrapper_form_section .form_input input {
+    font-size: var(--small-font-size);
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid var(--app-main-border);
+    border-radius: 3px;
+    padding: var(--input-btn-padding);
+}
+
+.input_partitioned {
+    /* padding-left: 15px; */
+    letter-spacing: 22px;
+    /* border: 0; */
+    background-position: center;
+    background-repeat: repeat-x;
+    /* background-position-x: 35px; */
+    font-weight: 500;
+}
+
+input[type='password'] {
+    font-family: Verdana;
+    letter-spacing: .25em;
+    opacity: .9;
+}
+
+.login_opts {
+    user-select: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.session_opt_block {
+    display: flex;
+    align-items: center;
+}
+
+.session_opt_block label,
+input {
+    cursor: pointer;
+    font-size: var(--small-font-size);
+    color: var(--main-font-secondary-color);
+}
+
+.login_opts span {
+    color: var(--app-main-color);
+    font-size: var(--small-font-size);
+    letter-spacing: var(--app-letter-space);
+    cursor: pointer;
+}
+
+.login_opts span:hover {
+    text-decoration: underline;
+}
+
+.wrapper_form_section .form_btn {
+    width: 100%
+}
+
+button a {
+    color: #fff;
+    font-weight: 600;
+}
+
+.wrapper_form_section .form_btn button {
+    cursor: pointer;
+    font-size: var(--small-font-size);
+    width: inherit;
+    border: 1px solid var(--app-main-border);
+    border-radius: 3px;
+    background-color: var(--app-main-color);
+    color: #fff;
+    padding: var(--input-btn-padding);
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+}
+
+.wrapper_form_section .form_btn button:hover {
+    opacity: .9
+}
+
+@keyframes btn_clicked {
+    from {
+        scale: .9
+    }
+
+    to {
+        scale: 1
+    }
+}
+
+.btn_clicked_animation {
+    opacity: .8;
+    cursor: not-allowed !important;
+    animation: btn_clicked 30ms ease-in-out;
+}
+
+.onboarding_content {
+    display: flex;
+    justify-content: center;
+    text-align: center
+}
+
+.onboarding_content span {
+    font-size: var(--small-font-size);
+    color: var(--main-font-secondary-color);
+    line-height: var(--app-line-height);
+    letter-spacing: var(--app-letter-space);
+    font-weight: 400;
+    opacity: .9;
+}
+
+.onboarding_content span a {
+    font-size: var(--small-font-size);
+    color: var(--);
+    line-height: .9;
+    letter-spacing: .2px;
+    cursor: pointer;
+    padding: 1px;
+    text-decoration: underline;
+    font-weight: 400;
+}
+
+#onb_login_opt {
+    display: block
+}
+
+#registrationn_pointer {
+    color: var(--app-main-color);
+    cursor: pointer;
+    text-decoration: none
+}
+
+.input_group_block {
+    opacity: 0;
+    visibility: hidden;
+    max-height: 0;
+    position: absolute;
+    transform: scale(.9);
+    transition: opacity var(--warapper-animation-duration), visibility var(--warapper-animation-duration), transform var(--warapper-animation-duration),
+}
+
+
+.wrapper_other_onboardinopt {
+    background: rgba(242, 241, 238, .6);
+    border: 1px solid var(--app-main-border);
+    padding: 10px;
+    border-radius: 3px;
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+}
+
+.wrapper_other_onboardinopt label {
+    cursor: pointer;
+    font-size: 12px;
+    color: var(--main-font-third-color);
+    font-weight: 500
+}
+
+/* floating input label */
+
+/* Import Google font - Poppins */
+
+
+.form_input {
+    position: relative;
+}
+
+
+.form_input label {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    /* color: #fff;  */
+    font-size: var(--small-font-size);
+    font-weight: 300;
+    opacity: .9;
+    color: var(--main-font-third-color);
+    line-height: var(--app-line-height);
+    letter-spacing: var(--app-letter-space);
+    pointer-events: none;
+    transition: 0.2s;
+}
+
+input:focus~label,
+input:valid~label {
+    top: 0;
+    left: 5px;
+    /* visibility: visible; */
+    opacity: .9;
+    padding: 0 4px;
+    background: var(--app-mode-color);
+}
+
+.wrong_input {
+    width: 100%;
+    user-select: none;
+    border-radius: 3px;
+    opacity: 0;
+    visibility: hidden;
+    max-width: var(--wrapper-width);
+    background-color: transparent;
+    transition: opacity 300ms;
+}
+
+.wrong_input_wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.wrong_input span {
+    /* #ff5722 */
+    /* background-color: red; */
+    display: block;
+    text-align: left;
+    font-size: var(--small-font-size);
+    color: var(--app-warning-color)
+}
+
+.wrong_input_active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.active_lg_inputblock {
+    visibility: visible;
+    opacity: 1;
+    position: unset;
+    max-height: 1000px;
+    transform: scale(1);
+    transition: opacity var(--warapper-animation-duration), visibility var(--warapper-animation-duration), transform var(--warapper-animation-duration)
+}
+
+/* Bounding Balls Animation */
+.dot-spinner {
+    display: inline-block
+}
+
+.dot-spinner {
+    margin-left: 5px
+}
+
+.dot-spinner div {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: white;
+    vertical-align: middle;
+    letter-spacing: -2px;
+}
+
+button .dot-spinner {
+    margin: 0;
+    padding: 0;
+    letter-spacing: -2px;
+}
+
+button .dot-spinner div {
+    background-color: var(--color-bg-default);
+}
+
+.dot-spinner div:first-child {
+    -webkit-transform: translate(-5px);
+    transform: translate(-5px);
+    -webkit-animation: dot-spinner-ani2 .5s linear infinite;
+    animation: dot-spinner-ani2 .5s linear infinite;
+    opacity: 0
+}
+
+.dot-spinner div:nth-child(2),
+.dot-spinner div:nth-child(3) {
+    -webkit-animation: dot-spinner-ani3 .5s linear infinite;
+    animation: dot-spinner-ani3 .5s linear infinite
+}
+
+.dot-spinner div:last-child {
+    -webkit-animation: dot-spinner-ani1 .5s linear infinite;
+    animation: dot-spinner-ani1 .5s linear infinite
+}
+
+@-webkit-keyframes dot-spinner-ani1 {
+    to {
+        -webkit-transform: translate(10px);
+        transform: translate(10px);
+        opacity: 0
+    }
+}
+
+@keyframes dot-spinner-ani1 {
+    to {
+        -webkit-transform: translate(10px);
+        transform: translate(10px);
+        opacity: 0
+    }
+}
+
+@-webkit-keyframes dot-spinner-ani2 {
+    to {
+        -webkit-transform: translate(5px);
+        transform: translate(5px);
+        opacity: 1
+    }
+}
+
+@keyframes dot-spinner-ani2 {
+    to {
+        -webkit-transform: translate(5px);
+        transform: translate(5px);
+        opacity: 1
+    }
+}
+
+@-webkit-keyframes dot-spinner-ani3 {
+    to {
+        -webkit-transform: translate(5px);
+        transform: translate(5px)
+    }
+}
+
+@keyframes dot-spinner-ani3 {
+    to {
+        -webkit-transform: translate(5px);
+        transform: translate(5px)
+    }
+}
+
+/* Bouncing Balls End */
+
+/* Wrong input animation */
+
+@-webkit-keyframes dot-spinner-ani3 {
+    from {
+        -webkit-transform: translate(-10px);
+        transform: translateX(-10px);
+    }
+
+    to {
+        -webkit-transform: translate(10px);
+        transform: translate(10px)
+    }
+}
+
+@keyframes wrong-input {
+    from {
+        -webkit-transform: translate(-12px);
+        transform: translateX(-12px);
+    }
+
+    to {
+        -webkit-transform: translate(12px);
+        transform: translate(12px)
+    }
+}
+
+.wrong_input span {
+    font-size: var(--small-font-size);
+    color: var(--app-warning-color)
+}
+
+/* Wrong input animation */
+@keyframes wrong_input {
+    from {
+        transform: translateX(20px);
+    }
+
+    to {
+        transform: translateX(-20px);
+    }
+}
+
+.wrong_input_highlight {
+    animation: wrong_input 100ms ease-in-out;
+}
+
+
+/* Disclaimer content */
+
+.disclaimer_position {
+    position: fixed;
+    bottom: 20px;
+}
+
+.disclaimer_container {
+    width: 100%;
+    max-width: var(--wrapper-width);
+    margin: auto;
+    text-align: center;
+}
+
+.disclaimer_container span {
+    font-size: var(--small-font-size);
+}
+
+.disclaimer_container span a {
+    cursor: pointer;
+    color: rgb(25, 95, 170);
+
+}
+
+.disclaimer_container span a:hover {
+    text-decoration: underline;
+}
+
+.input_block_header {
+    margin: 12px 0px 32px 0px;
+    user-select: none;
+}
+
+.input_block_header .header {
+    font-weight: 600;
+    font-size: var(--large-font-size);
+    padding: 10px 0px 0px 0px;
+    color: var(--main-font-secondary-color);
+}

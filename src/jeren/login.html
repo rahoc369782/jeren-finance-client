@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Space</title>
+    <meta name="viewport" content="initial-scale=1">
+    <link rel="stylesheet" href="/src/styles/login.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Mono:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/src/styles/main.css">
+    <script>
+        window.addEventListener("DOMContentLoaded", (e) => {
+            // Check for local storage
+            document.querySelector('[login-form]').classList.add('wrapper_form_active')
+            let current_user = localStorage.getItem("_username_");
+            if (current_user) {
+                document.getElementById("lg_email_value").value = current_user;
+                document.getElementById("lg_password_value").focus()
+            }
+            apply_keypress_event()
+        })
+    </script>
+    <script defer src="../scripts/login.js">
+    </script>
+
+</head>
+
+<body>
+    <main class="onboarding_content">
+        <div class="wrapper_middle_section">
+            <div login-form class="wrapper_form_section">
+                <div class="input_blocks_flow_container">
+                    <div onb-lg-userid-block class="input_group_block active_lg_inputblock">
+                        <div class="input_block_header">
+                            <div class="header">Continue your journey...</div>
+                            <span>Just conquere yourself</span>
+                            <!-- <div class="header">Let's check is it you?</div> -->
+                        </div>
+                        <div class="form_input input_spacing">
+                            <input onfocus="disable_wrong_input()" autofocus btn="onb-password-btn" id="lg_email_value"
+                                common-input required spellcheck="false" placeholder="">
+                            <label for="">Username</label>
+                        </div>
+                        <div class="form_input input_spacing">
+                            <input onfocus="disable_wrong_input()" btn="onb-password-btn" common-input
+                                id="lg_password_value" spellcheck="false" required type="password">
+                            <label for="">Password</label>
+                        </div>
+                        <div class="login_opts input_spacing">
+                            <div class="session_opt_block">
+                                <input id="session_opt" type="checkbox" />
+                                <label for="session_opt" class="duration">
+                                    Start blur mode</label>
+                            </div>
+                            <span>Forgot password</span>
+                        </div>
+                        <div class="form_btn input_spacing">
+                            <button onb-password-btn onclick="authenticate_user(event,'n')" onb-lg-email-btn>
+                                Login
+                            </button>
+                        </div>
+                        <div class="onboarding_content input_spacing">
+                            <span>New in space? <a href="./register.html" target="_blank"
+                                    id="registrationn_pointer">Register
+                                    here</a>
+                                </a></span>
+                        </div>
+                    </div>
+                    <div onb-otp-block class="input_group_block">
+                        <div class="input_block_header">
+                            <div class="header">Enter OTP sent to</div>
+                            <span>Below mentioned credential</span>
+                            <!-- <div class="header">Let's check is it you?</div> -->
+                        </div>
+                        <div class="wrapper_other_onboardinopt">
+                            <span user-unique-id></span>
+                            <label onclick="openlgBlock(event, 'p')">change</label>
+                        </div>
+                        <div class="form_input input_spacing">
+                            <input onfocus="disable_wrong_input()" placeholder="••••••" btn="onb-lg-otp-btn"
+                                class="input_partitioned" id="lg_otp_value" label="Mobile App Code" common-input
+                                type="number">
+                            <label for="">Sent OTP</label>
+                            <div class="resend_otp_opt input_spacing">
+                                <span>Resend in 13 seconds</span>
+                            </div>
+                        </div>
+                        <div class="form_btn input_spacing">
+                            <button onb-lg-otp-btn type="submit" onclick="authenticate_user_otp(event,'n')"
+                                onb-otp-btn>Continue</button>
+                        </div>
+                    </div>
+
+                    <form-input></form-input>
+                </div>
+            </div>
+            <div class="wrong_input input_spacing">
+                <div class="wrong_input_wrapper">
+                    <span></span>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="common_container disclaimer_position">
+            <div class="disclaimer_container">
+                <span>By continuing you indicate that you agree to space's <a href="#">Terms of Service</a> and <a
+                        href="#">Privacy</a>.</span>
+                <br />
+                <span>© Space, Inc. 2023</span>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

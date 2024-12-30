@@ -1,0 +1,252 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    min-width: 300px;
+    font-family: "Inter";
+    /* background-image: url(https://qsf.fs.quoracdn.net/-4-ans_frontend_assets.images.home_page_bg_desktop.png-26-4770753d59b970e1.png); */
+    /* font-family: 'Noto Sans Mono', monospace; */
+}
+
+
+:root {
+    --app-main-color: #0c74df;
+    --app-mode-color: white;
+    --app-main-back-color: #F2F1EE;
+    --app-secondary-back-color: #F0F0F0;
+    --app-success-background: #14A44D;
+    --app-main-border: #EEEEEE;
+    --main-font-color: #1d1d1f;
+    --main-font-secondary-color: #424245;
+    --main-font-third-color: #212121;
+    --app-secondary-border: #E1E1E1;
+    --app-line-height: 1.5;
+    --app-letter-space: .2px;
+    --smallest-font-size: 12px;
+    --small-font-size: 13px;
+    --medium-font-size: 16px;
+    --large-font-size: 18px;
+    --extralarge-font-size: 22px;
+    --color-bg-default: white;
+    --wrapper-width: 280px;
+    --web-wrapper-width: 1000px;
+    --mainlinks-width: 650px;
+    --input-height: 20px;
+    --input-btn-padding: 10px;
+    --margin-input: 20px;
+    --minwidth-bottom-links-tabs: 90px;
+    --g-header-height: 40px;
+    --warapper-animation-duration: 350ms;
+    --app-warning-color: #FC2947;
+}
+
+
+* {
+    font-family: 'Inter', sans-serif;
+    /* font-family: 'Noto Sans Mono', monospace; */
+    color: var(--main-font-color);
+    letter-spacing: var(--app-letter-space);
+}
+
+h1,
+h3,
+h4 {
+    padding: 0;
+    margin: 0;
+}
+
+input {
+    padding: 0;
+    margin: 0;
+    outline: none;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+[type="checkbox"] {
+    vertical-align: middle;
+    border: 1px solid #eee;
+    width: 12px;
+    height: 12px;
+}   
+
+a {
+    text-decoration: none;
+}
+
+.form_input {
+    width: 100%;
+}
+
+
+.form_input span {
+    user-select: none;
+    cursor: pointer;
+    list-style: none;
+    color: var(--app-main-color);
+    font-size: 12px;
+    letter-spacing: .02em;
+    line-height: 1;
+    background: no-repeat;
+    white-space: nowrap;
+    font-weight: 400;
+}
+
+ .form_input span:hover {
+    text-decoration: underline;
+}
+
+.input_spacing {
+    margin-top: var(--margin-input)
+}
+
+.resend_otp_opt {
+    display: flex;
+    justify-content: center;
+}
+
+ .form_input input {
+    font-size: var(--small-font-size);
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid var(--app-main-border);
+    border-radius: 3px;
+    padding: var(--input-btn-padding);
+}
+
+.input_partitioned {
+    /* padding-left: 15px; */
+    letter-spacing: 22px;
+    /* border: 0; */
+    background-position: center;
+    background-repeat: repeat-x;
+    /* background-position-x: 35px; */
+    font-weight: 500;
+}
+
+input[type='password'] {
+    font-family: Verdana;
+    letter-spacing: .25em;
+    opacity: .9;
+}
+
+.login_opts {
+    user-select: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.session_opt_block {
+    display: flex;
+    align-items: center;
+}
+
+.session_opt_block label,
+input {
+    cursor: pointer;
+    font-size: var(--small-font-size);
+    color: var(--main-font-secondary-color);
+}
+
+.form_btn {
+    width: 100%
+}
+
+
+button a {
+    color: #fff;
+    font-weight: 600;
+}
+
+ .form_btn button {
+    cursor: pointer;
+    font-size: var(--small-font-size);
+    width: inherit;
+    border: 1px solid var(--app-main-border);
+    border-radius: 3px;
+    background-color: var(--app-main-color);
+    color: #fff;
+    padding: var(--input-btn-padding);
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+}
+
+ .form_btn button:hover {
+    opacity: .9
+}
+
+
+@keyframes btn_clicked {
+    from {
+        scale: .9
+    }
+
+    to {
+        scale: 1
+    }
+}
+
+.btn_clicked_animation {
+    opacity: .8;
+    cursor: not-allowed !important;
+    animation: btn_clicked 30ms ease-in-out;
+}
+
+
+.transaction_entries_container {
+    background: rgba(242, 241, 238, .6);
+    border: 1px solid #EEEEEE;
+    padding: 10px;
+    border-radius: 2px;
+    font-size: 12px;
+}
+
+.transaction_entries_container {
+    background: rgba(242, 241, 238, .6);
+    border: 1px dotted #EEEEEE;
+    padding: 10px;
+    border-radius: 2px;
+    font-size: 12px;
+}
+
+.transaction_entries_container .entries_title {
+    font-size: 13px;
+    color: var(--main-font-third-color);
+    font-weight: 500;
+    padding: 0px 0px 8px 0px;
+}
+
+.trns_individual_entry {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.trns_individual_entry span {
+    margin: 2px 0px 2px 0px;
+}
+
+.transaction_seperations {
+    border: 1px solid #EEEEEE;
+    margin: 10px 0px;
+}
+
+.fin_accounts_wrapper {
+    max-height: 150px;
+    overflow: scroll;
+}
+
+.fin_accounts_wrapper div {
+    cursor: pointer;
+    padding: 4px 0px 4px 0px;
+}
