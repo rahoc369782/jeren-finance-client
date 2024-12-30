@@ -15,12 +15,12 @@
         rel="stylesheet">
     <link rel="stylesheet" href="/src/styles/main.css">
     <!-- <link rel="stylesheet" href="./styles/main.css"> -->
-    <!-- <link rel="stylesheet" href="/src/styles/sp_nav.css"> -->
+    <link rel="stylesheet" href="/src/styles/sp_nav.css">
     <!-- <link rel="stylesheet" href="/src/styles/plans.css"> -->
     <link rel="stylesheet" href="/src/styles/login.css">
     <link rel="stylesheet" href="/src/styles/jeren.index.css">
 
-    <script src="../scripts/plans.js"></script>
+    <!-- <script src="../scripts/plans.js"></script> -->
     <style>
 
     </style>
@@ -30,7 +30,7 @@
     <div class="main_wrapper">
         <div class="sub_wrapper">
         <div>
-            <!-- <nav class="global_header_container">
+         <nav class="global_header_container">
                 <div class="header_conatainer">
                     <div id="_g_header_navbar_wrapper" class="g_header_navbar_wrapper">
                         <div class="dropdown_block">
@@ -66,7 +66,7 @@
                         </div>
                     </div>
                 </div>
-            </nav> -->
+            </nav>
         </div>
         <!-- <div process-status-strip class="account_activated_warning">
             <span account-status-msg></span> -->
@@ -91,7 +91,7 @@
                             <span class="j_tabs">Investment</span>
                         </div>
                         <div class="tabs_wrapper">
-                            <span></span>
+                            <span>Saved</span>
                         </div>
                     </div>
                     <div class="transaction_entries_container">
@@ -269,7 +269,7 @@
     value: "equity:opening-balance",
   },
 ];
-const maxLength = 20;
+const maxLength = 30;
 function limit_string(text ) {
     // Split the text into words
 
@@ -288,17 +288,61 @@ function limit_string(text ) {
   }
 
 
-const mapedAccount = j_allowed_accounts.map((item, ind) => {
-    const ele = document.createElement("div");
-    ele.classList.add("account_name")
-    ele.innerText = limit_string(item["name"]); // Set the text inside the span
-    return ele; // Return the DOM element
+  function createFileElement(file) {
+  const fileWrapper = document.createElement("div");
+  fileWrapper.className = "file_wrapper";
+  fileWrapper.title = file.name;
+
+  // Add click event listener
+//   fileWrapper.addEventListener("click", file_switching_process);
+
+  const svgWrapper = document.createElement("div");
+
+  const svgElement = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+  svgElement.setAttribute("role", "graphics-symbol");
+  svgElement.setAttribute("viewBox", "0 0 16 16");
+  svgElement.setAttribute("class", "page");
+  Object.assign(svgElement.style, {
+    width: "18px",
+    height: "18px",
+    display: "block",
+    fill: "rgba(55, 53, 47, 0.45)",
+    flexShrink: 0,
   });
+
+  const pathElement = document.createElementNS("http://www.w3.org/2000/svg", "path");
+  pathElement.setAttribute("d", "M4.35645 15.4678H11.6367C13.0996 ... 11.2979Z"); // Truncated path for brevity
+  svgElement.appendChild(pathElement);
+
+  svgWrapper.appendChild(svgElement);
+  fileWrapper.appendChild(svgWrapper);
+
+  const spanElement = document.createElement("span");
+  spanElement.innerText = limit_string(file.name, 20);
+
+//   if (file.id === currdoc.id) {
+//     spanElement.style.color = "var(--app-color-code)";
+//   }
+  
+  fileWrapper.appendChild(spanElement);
+
+  return fileWrapper;
+}
+
+function createMappedAccounts() {
+  return j_allowed_accounts.map((item) => {
+    const ele = createFileElement(item)
+    // const fileWrapper = document.createElement("div");
+    // fileWrapper.className = "file_wrapper";
+    // fileWrapper.innerText = limit_string(item["name"], 20); // Set text
+    return ele;
+  });
+}
 
   const accountsSection = document.getElementById("fin-accounts-sec");
 
   // Append each span element to the container
-  mapedAccount.forEach((ele) => {
+  createMappedAccounts().forEach((ele) => {
     accountsSection.appendChild(ele);
   });
         </script>

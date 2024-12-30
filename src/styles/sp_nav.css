@@ -6,7 +6,7 @@
 }
 
 :root {
-    --g-nav-height: 45px;
+    --g-nav-height: 35px;
 }
 
 
@@ -123,9 +123,9 @@ a {
     justify-content: center;
     align-items: center;
     list-style: none;
-    color: #1d1d1f;
+    color: #424245;
     font-size: 12px;
-    min-width: 70px;
+    min-width: 65px;
     letter-spacing: .02em;
     line-height: 1;
     margin: 0 5px;
@@ -144,8 +144,7 @@ a {
 }
 
 .g_header_navbar_wrapper .dropdown_block .dropdown_block_heading:hover {
-    font-family: inter_medium;
-    color: black;
+    color: var(--app-main-color);
 }
 
 .dropdown_items a {
