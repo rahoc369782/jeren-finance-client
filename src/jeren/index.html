@@ -15,9 +15,11 @@
         rel="stylesheet">
     <link rel="stylesheet" href="/src/styles/main.css">
     <!-- <link rel="stylesheet" href="./styles/main.css"> -->
-    <link rel="stylesheet" href="/src/styles/sp_nav.css">
-    <link rel="stylesheet" href="/src/styles/plans.css">
+    <!-- <link rel="stylesheet" href="/src/styles/sp_nav.css"> -->
+    <!-- <link rel="stylesheet" href="/src/styles/plans.css"> -->
     <link rel="stylesheet" href="/src/styles/login.css">
+    <link rel="stylesheet" href="/src/styles/jeren.index.css">
+
     <script src="../scripts/plans.js"></script>
     <style>
 
@@ -25,9 +27,10 @@
 </head>
 
 <body>
-    <div class="main_section">
+    <div class="main_wrapper">
+        <div class="sub_wrapper">
         <div>
-            <nav class="global_header_container">
+            <!-- <nav class="global_header_container">
                 <div class="header_conatainer">
                     <div id="_g_header_navbar_wrapper" class="g_header_navbar_wrapper">
                         <div class="dropdown_block">
@@ -42,12 +45,7 @@
                                 </svg>
                             </span>
                         </div>
-                        <!-- <div class="dropdown_block">
-                            <span id="weare_nav_tab" g_nav_header_tab class="dropdown_block_heading">Weare</span>
-                        </div>
-                        <div class="dropdown_block">
-                            <span id="weare_nav_tab" g_nav_header_tab class="dropdown_block_heading">Weare</span>
-                        </div> -->
+                      
                         <div class="dropdown_block">
                             <span id="shoes_nav_tab" g_nav_header_tab class="dropdown_block_heading">Home</span>
                         </div>
@@ -68,14 +66,35 @@
                         </div>
                     </div>
                 </div>
-            </nav>
+            </nav> -->
         </div>
-        <div process-status-strip class="account_activated_warning">
-            <span account-status-msg></span>
-        </div>
-        <main class="content">
-            <div class="jeren_trns_form_container">
-                <div class="transaction_entries_container input_spacing">
+        <!-- <div process-status-strip class="account_activated_warning">
+            <span account-status-msg></span> -->
+        <!-- </div> -->
+        <main class="j_content_section">
+            <section class="j_lhs_section">
+                <div class="j_lhs_section_first">
+                    <div id="fin-accounts-sec">
+                    </div>
+                </div>
+                <div class="j_lhs_section_two">
+
+                </div>
+            </section>
+            <section class="j_rhs_section">
+                 <div class="jeren_trns_form_container">
+                    <div class="form_tabs_wrapper">
+                        <div class="tabs_wrapper">
+                            <span class="j_tabs">Regular</span>
+                        </div>
+                        <div class="tabs_wrapper">
+                            <span class="j_tabs">Investment</span>
+                        </div>
+                        <div class="tabs_wrapper">
+                            <span></span>
+                        </div>
+                    </div>
+                    <div class="transaction_entries_container">
                     <div class="transactions_debit_entries">
                         <div class="debit_entries_wrapper">
                             <h4 class="entries_title">Debit Entries</h4>
@@ -93,7 +112,6 @@
                             <span user-unique-id>30,000</span>
                         </div>
                     </div>
-                    <hr class="transaction_seperations"></hr>
                     <div class="transactions_debit_entries">
                         <div class="debit_entries_wrapper">
                             <h4 class="entries_title">Credit Entries</h4>
@@ -110,13 +128,7 @@
                     
                 </div>
 
-                <div class="">
-                    <div class="fin_accounts_wrapper">
-                        <div id="fin-accounts-sec">
-
-                        </div>
-                    </div>
-                </div>
+                
                 <div class="form_input input_spacing">
                     <input onfocus="disable_wrong_input()" autofocus btn="onb-password-btn" id="lg_email_value"
                         common-input required spellcheck="false" placeholder="">
@@ -146,8 +158,10 @@
                     </button>
                 </div>
             </div>
-           
+            </section>
         </main>
+        </div>
+        
 
         <script>
             const j_allowed_accounts = [
@@ -255,10 +269,29 @@
     value: "equity:opening-balance",
   },
 ];
-        
+const maxLength = 20;
+function limit_string(text ) {
+    // Split the text into words
+
+    if (text.length <= maxLength) {
+      return text;
+    }
+    const words = text.split("");
+
+    // Ensure the string has more than maxWords
+    // Join the first maxWords words and add ellipsis
+    const truncatedText = words.slice(0, maxLength).join("") + "...";
+
+    // If the string is within the limits or the truncation process failed
+    // Return the original string
+    return truncatedText;
+  }
+
+
 const mapedAccount = j_allowed_accounts.map((item, ind) => {
     const ele = document.createElement("div");
-    ele.innerText = item["name"]; // Set the text inside the span
+    ele.classList.add("account_name")
+    ele.innerText = limit_string(item["name"]); // Set the text inside the span
     return ele; // Return the DOM element
   });
 
