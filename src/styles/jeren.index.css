@@ -1,3 +1,13 @@
+:root {
+    --content-space: 30px;
+    --plans-strip-height: 35px;
+    /* --plans-strip-actual-height: 0px; */
+    --g-nav-height: 40px;
+    --plans-strip-background: #fbfbfb;
+    --plans-wrapper-width: 700px;
+    --app--lhssearchbar-height:35px;
+    --smallest-font-size: 12px;
+}
 .main_wrapper {
     width: 100%;
     margin: auto;
@@ -18,23 +28,52 @@
 .j_content_section {
     display: flex;
     width: inherit;
-    gap: 5px;
+    /* gap: 5px; */
     height: inherit;
 }
 
 .j_content_section .j_lhs_section {
     flex-basis: 230px;
     background-color: rgba(242, 241, 238, 0.6);
-    border: 1px solid #eee;
-    border-radius: 3px;
+    border-right: 1px solid #eee;
+    /* border-radius: 3px; */
     height: 100%;
     display: flex;
     flex-direction: column;
 }
 
+.j_lhs_section .j_lhs_section_search {
+    
+}
 
+.j_lhs_section .j_lhs_section_search .search_bar_wrapper {
+    width: inherit;
+    height: var(--app--lhssearchbar-height);
+    border-bottom: 1px solid #eee;
+    padding: 3px 5px;
+    display: flex;
+    align-items: center;
+}
+.j_lhs_section .j_lhs_section_search .search_bar_wrapper .svg_wrapper {
+    height: 20px;
+    width: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 5px;
+}
+
+.j_lhs_section .j_lhs_section_search .search_bar_wrapper input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    background-color: inherit;
+    font-size: var(--smallest-font-size);
+}
 .j_rhs_section {
     flex-grow: 1;
+    padding: 0px 8px;
 }
 .j_rhs_section .jeren_trns_form_container {
 
@@ -59,6 +98,7 @@
 .j_lhs_section_two {
     flex-basis: 200px;
     min-height: 180px;
+    padding: 5px;
 }
 
 .file_wrapper {
@@ -88,15 +128,54 @@
     gap: 12px;
     padding: 12px 0px;
   }
-  .form_tabs_wrapper .tabs_wrapper {
+  .form_tabs_wrapper .tabs_wrapper .j_tabs ,.text_content_small {
     font-size: 12px;
     color: var( --main-font-secondary-color);
+    cursor: pointer;
+    height: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    color: #424245;
+    font-size: 12px;
+    min-width: 45px;
+    letter-spacing: .02em;
+    line-height: 1;
+    /* margin: 0 5px; */
+    background: no-repeat;
+    text-decoration: none;
+    white-space: nowrap;
   }
   .form_tabs_wrapper .tabs_wrapper span:hover {
     cursor: pointer;
     color: var(--app-main-color);
   }
-  
+
+  .plans_strip_container {
+    background-color: white;
+    max-height: 200px;
+    height: var(--plans-strip-height);
+    width: 100%;
+    border-bottom: 1px solid var(--app-main-border);
+    position: relative;
+    z-index: 500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  .header_container_wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--app-main-border);
+  }
+
+  .global_inactive {
+    opacity: .8;
+    pointer-events: none;
+    user-select: none;
+  }
   /* Mobile set View */
   
   @media only screen and (max-width: 650px) {
