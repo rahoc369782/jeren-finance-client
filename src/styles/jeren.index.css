@@ -180,7 +180,7 @@
 
   .global_inactive {
     opacity: .8;
-    /* pointer-events: none; */
+    pointer-events: none;
     user-select: none;
   }
 
