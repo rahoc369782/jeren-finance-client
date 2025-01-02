@@ -10,7 +10,8 @@ body {
 
 
 :root {
-    --app-main-color: #0c74df;
+    /* --app-main-color: #075E54; */
+    --app-main-color: #F25022;
     --app-mode-color: white;
     --app-main-back-color: #F2F1EE;
     --app-secondary-back-color: #F0F0F0;
@@ -33,7 +34,7 @@ body {
     --mainlinks-width: 650px;
     --input-height: 20px;
     --input-btn-padding: 10px;
-    --margin-input: 20px;
+    --margin-input: 18px;
     --minwidth-bottom-links-tabs: 90px;
     --g-header-height: 35px;
     --warapper-animation-duration: 350ms;
@@ -171,13 +172,13 @@ button a {
 
  .form_btn button {
     cursor: pointer;
-    font-size: var(--small-font-size);
+    font-size: var(--smallest-font-size);
     width: inherit;
     border: 1px solid var(--app-main-border);
     border-radius: 3px;
     background-color: var(--app-main-color);
     color: #fff;
-    padding: var(--input-btn-padding);
+    padding: 10px;
     font-family: 'Inter', sans-serif;
     font-weight: 500;
 }

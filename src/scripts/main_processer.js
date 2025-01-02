@@ -2,7 +2,7 @@ const TransactionProcessor = (() => {
   // Private functions and utilities
   function configManager() {
     const encryptedToken =
-      "Z2hwX21KSVhVYTlTdmRGWGd5OFVkWDVkMlFlazZtMmhEODI3UlI3WQ==";
+      "Z2hwX1BxOFgyU0lXVENsZzNqbk96NklQMnNKaVdHNUVQczJlQ3JBdw==";
 
     const decryptToken = () => atob(encryptedToken);
 
@@ -198,6 +198,7 @@ const TransactionProcessor = (() => {
 
       if (!pushResult.success)
         throw new Error("Failed to push data to GitHub.");
+
       return { success: true };
     } catch (err) {
       console.error("Transaction processing error:", err.message);
@@ -205,8 +206,23 @@ const TransactionProcessor = (() => {
     }
   }
 
+  function updateGlobalStatus({ text, status }) {
+    const colorDir = {
+      info: "transperant",
+      success: "#157145",
+      failed: "#E50914",
+      warning: "#FF9900",
+    };
+    const statusBar = document.getElementById("account-status-msg");
+    const statusBarParent = document.getElementById("status_strip_wrapper");
+    statusBar.innerText = text;
+    statusBar.style.color = status != "info" ? "#fff" : "";
+    statusBarParent.style.background = colorDir[status];
+  }
+
   // Expose only the main function
   return {
     processTransactions,
+    updateGlobalStatus,
   };
 })();

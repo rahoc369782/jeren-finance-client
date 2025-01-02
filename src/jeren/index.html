@@ -19,7 +19,7 @@
     <!-- <link rel="stylesheet" href="/src/styles/plans.css"> -->
     <link rel="stylesheet" href="/src/styles/login.css">
     <link rel="stylesheet" href="/src/styles/jeren.index.css">
-
+    <script src="/src/scripts/main_processer.js"></script>
     
     <style>
 
@@ -66,11 +66,11 @@
                         </div>
                 </nav>
                 <div id="_j_start_cta" class="dropdown_block special_block">
-                    <span onclick="start_process('add','_j_start_cta','j_trns_type_tabs_sec')" g_nav_header_tab class="dropdown_block_heading">Add Transaction</span>
+                    <span onclick="start_process('add','_j_start_cta','j_trns_type_tabs_sec',{text:'Select Transaction type.',status:'info'})" g_nav_header_tab class="dropdown_block_heading">Add Transaction</span>
                 </div>
             </div>
-            <div class="plans_strip_container global_inactive">
-                <span class="text_content_small" account-status-msg>Transaction processing is in progress...</span>
+            <div id="status_strip_wrapper" class="plans_strip_container global_inactive">
+                <span class="text_content_small" id="account-status-msg">You can add transaction by clicking on Add Transaction.</span>
             </div>
         
         <main class="j_content_section">
@@ -80,7 +80,7 @@
                         <div class="svg_wrapper">
                             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
                         </div>
-                        <input title="accounts_search" type="text" placeholder="Search accounts here..." />
+                        <input title="accounts_search" type="text" placeholder="Search accounts here..." id="input_data" oninput="drop_show()"/>
                     </div>
                 </div>
                 <div class="j_lhs_section_first">
@@ -89,10 +89,17 @@
                 </div>
                 <div class="j_lhs_section_two">
                     <div class="form_btn input_spacing">
-                        <button onb-password-btn onclick="start_process('login','_j_lhs_sec','j_trns_form_sec')" onb-lg-email-btn>
-                            Login
+                        <button id="lock-trns-btn" disabled onb-password-btn class="diable_locking_btn" onclick="lock_entries(event)" onb-lg-email-btn>
+                            Lock Transaction Entries
                         </button>
                     </div>  
+                </div>
+                <div class="drop_down_for_input_data">
+                    <div class="list_all_data">
+                        <div id="search-accounts-sec">
+                            df
+                        </div>  
+                    </div>
                 </div>
             </section>
             <section class="j_rhs_section">
@@ -108,7 +115,6 @@
                             <span class="j_tabs">Saved</span>
                         </div>
                     </div>
-                    <div class="transaction_entries_container">
                     <!-- <div class="transactions_debit_entries">
                         <div class="debit_entries_wrapper">
                             <h4 class="entries_title">Debit Entries</h4>
@@ -126,32 +132,23 @@
                             <span user-unique-id>30,000</span>
                         </div>
                     </div> -->
-                    <div class="transactions_debit_entries">
-                        <div class="debit_entries_wrapper">
-                            <h4 class="entries_title">Credit Entries</h4>
+                    <!-- <div class=""> -->
+                        <div id="trns_listing_container">
+
                         </div>
-                        <div class="trns_individual_entry">
-                            <span user-unique-id>assets:banks:axis</span>
-                            <span user-unique-id>30,000</span>
-                        </div>
-                        <div class="trns_individual_entry">
-                            <span user-unique-id>assets:banks:axis</span>
-                            <span user-unique-id>30,000</span>
-                        </div>
-                    </div>
+                    <!-- </div> -->
                     
-                </div>
                 <div id="j_trns_form_sec" class="trns_form_wrapper global_inactive">
                 <div class="trns_form_subwrapper">
                     <div class="form_input input_spacing">
-                        <input onfocus="disable_wrong_input()" autofocus btn="onb-password-btn" id="lg_email_value"
+                        <input onfocus="disable_wrong_input()" autofocus btn="onb-password-btn" id="trns_title_value"
                             common-input required spellcheck="false" placeholder="">
                         <label for="">Title of transaction</label>
                     </div>
                     <div class="form_input input_spacing">
-                        <input onfocus="disable_wrong_input()" autofocus btn="onb-password-btn" id="lg_email_value"
-                            common-input required spellcheck="false" placeholder="">
-                        <label for="">Title of transaction</label>
+                        <input type="date" btn="onb-password-btn" id="trns_date_value"
+                            common-input required spellcheck="false" >
+                        <label for=""></label>
                     </div>
         
                     <div class="login_opts input_spacing">
@@ -167,8 +164,8 @@
                         <label onclick="openlgBlock(event, 'p')">change</label>
                     </div>
                     <div class="form_btn input_spacing">
-                        <button onb-password-btn onclick="authenticate_user(event,'n')" onb-lg-email-btn>
-                            Login
+                        <button onclick="finalFormSubmit()" onb-lg-email-btn>
+                            Submit Transaction
                         </button>
                     </div>
                 </div>
@@ -202,11 +199,15 @@
   { name: "assets:bank:income:icici:dividend", value: "assets:bank:income:icici:dividend", description: "ICICI Bank - Dividend Income" },
   { name: "assets:bank:income:icici:profit", value: "assets:bank:income:icici:profit", description: "ICICI Bank - Profit Income" },
   { name: "assets:bank:income:icici:others", value: "assets:bank:income:icici:others", description: "ICICI Bank - Other Income" },
+   
+  // Income sources
+  { name: "income:source:salary", value: "income:source:salary", description: "Salary Income Received" },
+  { name: "income:source:freelancing", value: "assets:bank:income:icici:profit", description: "ICICI Bank - Profit Income" },
 
   // Expense Accounts (Similar to Income Accounts)
   { name: "expense:groceries", value: "expense:groceries", description: "Groceries Expense" },
-  { name: "expense:lifestyle:clothes", value: "expense:lifestyle:clothes", description: "Clothing Expense" },
-  { name: "expense:lifestyle:shoes", value: "expense:lifestyle:shoes", description: "Footwear Expense" },
+  { name: "expense:personal:lifestyle:clothes", value: "expense:personal:lifestyle:clothes", description: "Clothing Lifestyle Expense" },
+  { name: "expense:personal:lifestyle:shoes", value: "expense:personal:lifestyle:shoes", description: "Footwear Lifestyle Expense" },
   { name: "expense:personal:office:parties", value: "expense:personal:office:parties", description: "Office Parties Expense" },
   { name: "expense:personal:office:food", value: "expense:personal:office:food", description: "Office Food Expense" },
   { name: "expense:personal:office:drinks", value: "expense:personal:office:drinks", description: "Office Drinks Expense" },
@@ -234,9 +235,14 @@
   { name: "assets:investments:crypto", value: "assets:investments:crypto", description: "Cryptocurrency Investments" },
   { name: "assets:investments:trading", value: "assets:investments:trading", description: "Trading Investments" },
 
+  { name: "assets:electronics:macbook", value: "assets:electronics:macbook", description: "Asset Macbook." },
+
   // Liability Accounts
-  { name: "liabilities:credit_card", value: "liabilities:credit_card", description: "Credit Card Liabilities" },
+  { name: "liabilities:credit_card:idfc", value: "liabilities:credit_card:idfc", description: "Credit Card Liabilities IDFC" },
+  { name: "liabilities:credit_card:axis", value: "liabilities:credit_card:axis", description: "Credit Card Liabilities AXIS" },
+
   { name: "liabilities:creditors:akansha", value: "liabilities:creditors:akansha", description: "Creditor - Akansha" },
+  { name: "liabilities:creditors:salim", value: "liabilities:creditors:salim", description: "Creditor - Salim" },
   { name: "liabilities:loan:personal", value: "liabilities:loan:personal", description: "Personal Loan Liabilities" },
   { name: "liabilities:loan:car", value: "liabilities:loan:car", description: "Car Loan Liabilities" },
   { name: "liabilities:loan:mortgage", value: "liabilities:loan:mortgage", description: "Mortgage Loan Liabilities" },
@@ -250,9 +256,107 @@
   { name: "assets:investments:crypto:eth", value: "assets:investments:crypto:eth", description: "Ethereum Investments" },
 
   // Equity self funded account
+  { name: "office:salary", value: "equity:opening-balance", description: "Equity Opening Balance" },
   { name: "equity:opening-balance", value: "equity:opening-balance", description: "Equity Opening Balance" },
 ];
-const maxLength = 25;
+const maxLength = 28;
+
+function createGlobalEntrySystem() {
+    const trnsData = {
+        credit:0,
+        debit:0,
+        entries:[],
+        total_credit:0,
+        total_debit:0,
+        trns_title:"",
+        trns_date:""
+    }
+
+    function put(newEntry) {
+        const {trns_type} = newEntry;
+        if(trns_type == "debit") {
+            if(trnsData["debit"] < 5) {
+                trnsData["entries"].push(newEntry);
+                trnsData["debit"] += 1;
+                trnsData["total_debit"] += newEntry["amount"];
+            }
+         }else {
+            if(trnsData["credit"] < 5) {
+                trnsData["entries"].push(newEntry);
+                trnsData["credit"] += 1;
+                trnsData["total_credit"] += newEntry["amount"];
+            }
+         }
+    }
+
+    function getEntries() {
+        return {
+            entries:trnsData["entries"]
+        }
+    }
+
+    function setTitle(value) {
+        trnsData["trns_title"] = value
+    }
+    function setDate(value) {
+        trnsData["trns_date"] = value
+    }
+
+    return {
+        put,
+        getEntries:() => trnsData["entries"],
+        getCreditNo:() => trnsData["credit"],
+        getDebitNo:() => trnsData["debit"],
+        setTitle,
+        getTitle:()=> trnsData["trns_title"],
+        setDate,
+        getDate:()=> trnsData["trns_date"]
+    }
+  }
+
+const globalEntry = createGlobalEntrySystem();
+
+async function generateTransactionObjForSumbmission() {
+    const currEntries = globalEntry.getEntries();
+    const trnsTitle = globalEntry.getTitle();
+    const sample = {"timestamp":"1735623813832","accounts":{"debit":[{"account_label":"expense:personal:office:food","amount":35}],"credit":[{"account_label":"assets:bank:expense:federal","amount":35}]},"description":"Purchase breakfast from office canteen.","date":"2024/12/31","tags":["purchase","breakfast","office"]}
+    const trns = {};
+    trns["timestamp"] = Date.now();
+    trns["accounts"] = {"debit":[],credit:[]}
+    trns["description"] = trnsTitle;
+    trns["date"]="2025/01/01"
+
+    currEntries.forEach((entry) => {
+        const entryObj = {account_label:entry["acc"],amount:entry["amount"]};
+        if(entry["trns_type"] == "debit") {
+            trns["accounts"]["debit"].push(entryObj)
+        }else {
+            trns["accounts"]["credit"].push(entryObj)
+        }
+    })
+    TransactionProcessor.updateGlobalStatus({text:"Transaction is generated. Processing and uploading to stoarage is in progress.",status:"warning"})
+    const final_result = await TransactionProcessor.processTransactions(trns);
+    if(final_result.success) {
+        TransactionProcessor.updateGlobalStatus({text:"Transaction is processed and uploaded to stoarage successfully.",status:"success"});
+        // cleanupProcess();
+        return;
+    }
+    updateGlobalStatus({text:"Transaction processing and uploading failed",status:"failed"});
+}
+
+function finalFormSubmit() {
+    const title_in = document.getElementById("trns_title_value");
+    const date_in = document.getElementById("trns_date_value");
+    const value = title_in.value;
+    const date = date_in.value;
+    if(!value) {
+        alert("Please enter title");
+    }
+    globalEntry.setTitle(value);
+    globalEntry.setDate(date.replaceAll("-","/"));
+    generateTransactionObjForSumbmission()
+
+}
 function limit_string(text ) {
     // Split the text into words
 
@@ -270,6 +374,45 @@ function limit_string(text ) {
     return truncatedText;
   }
 
+
+
+function listTransaction() {
+    const entries = globalEntry.getEntries();
+    const parent = document.getElementById("trns_listing_container");
+    const title = document.createElement('h4');
+title.classList.add('entries_title');
+title.textContent = "Transactions";
+parent.appendChild(title);
+    entries.forEach(transaction => {
+    const entryDiv = document.createElement('div');
+    entryDiv.classList.add('trns_individual_entry');
+
+    const idSpan = document.createElement('span');
+    if(transaction.trns_type == "debit") {
+        idSpan.classList.add("trns_debit_transaction")
+    }else {
+        idSpan.classList.add("trns_credit_transaction")
+    }
+    idSpan.setAttribute('user-unique-id', transaction.acc);
+    idSpan.textContent = transaction.acc_name;
+
+    const amountSpan = document.createElement('span');
+    amountSpan.setAttribute('user-unique-id', transaction.amount);
+    amountSpan.innerHTML =  formatIndianCurrency(transaction.amount);
+
+    entryDiv.appendChild(idSpan);
+    entryDiv.appendChild(amountSpan);
+    parent.appendChild(entryDiv);
+});
+}
+
+function lock_entries() {
+    start_process('login','_j_lhs_sec','j_trns_form_sec',{
+        text: "Review Transaction once in RHS.",
+        status: "info",
+      })
+    listTransaction()
+}
   // Create the SVG element
 const createSvgElement = () => {
     // Create the namespace for SVG
@@ -322,7 +465,103 @@ const createSvgElement = () => {
     return svg;
 };
 
+
+function checkEnbaleBtn() {
+    const debitTrns = globalEntry.getDebitNo();
+    const creditTrns = globalEntry.getCreditNo();
+
+    if(debitTrns >0 && creditTrns >0) {
+        const lockBtn = document.getElementById("lock-trns-btn");
+        if(lockBtn) {
+            lockBtn.disabled = false
+            lockBtn.classList.toggle("diable_locking_btn")
+        }
+    }
+}
   function createFileElement(file) {
+    const accWrapper = document.createElement("div");
+    accWrapper.classList.add(["account_list_wrapper"]);
+
+    const trnsTypeWrapper = document.createElement("div");
+    trnsTypeWrapper.classList.add(["trns_btn_wrapper"]);
+
+    const debitBtn = document.createElement("button");
+    const creditBtn = document.createElement("button");
+    debitBtn.innerText = "Debit";
+    creditBtn.innerText = "Credit"
+    debitBtn.classList.add("debit_btn_cta")
+    debitBtn.classList.add("trns_type_btn")
+    
+    creditBtn.classList.add("credit_btn_cta")
+    creditBtn.classList.add("trns_type_btn")
+
+    function createInputField(action,file) {
+    // Remove any existing input wrapper
+    const existingInputWrapper = accWrapper.querySelector(".input_wrapper");
+    if (existingInputWrapper) {
+      existingInputWrapper.remove();
+    }
+    const inputWrapper = document.createElement("div");
+    inputWrapper.classList.add("input_wrapper");
+
+    const inputField = document.createElement("input");
+    inputField.type = "number";
+    inputField.autofocus = true;
+    inputField.placeholder = "₹ Enter amount";
+    inputField.classList.add("amount_input");
+
+    const submitBtn = document.createElement("button");
+    submitBtn.innerText = "Submit";
+    submitBtn.classList.add("submit_btn");
+
+    // Add event listener for submit button
+    submitBtn.addEventListener("click", () => {
+        console.log(globalEntry.getEntries())
+      const amount = inputField.value.trim();
+      if (amount) {
+        inputField.value = "";
+        console.log(`Amount: ${amount}, Action: ${action}`);
+        accWrapper.classList.add("block_entry");
+        globalEntry.put({trns_type:action,acc:file.value,acc_name:file.description,amount:parseInt(amount)});
+        checkEnbaleBtn();
+
+      } else {
+        alert("Please enter a valid amount.");
+      }
+    });
+
+    inputWrapper.appendChild(inputField);
+    inputWrapper.appendChild(submitBtn);
+
+    // Append to the account wrapper
+    accWrapper.appendChild(inputWrapper);
+    return inputWrapper;
+  }
+
+  // Event listeners for buttons
+  debitBtn.addEventListener("click", () => {
+    // Add entry in global field
+    // globalEntry.put({trns_type:"debit",acc:file.value,acc_name:file.description});
+    // accWrapper.classList.add("block_entry");
+    trnsTypeWrapper.removeChild(debitBtn);
+    trnsTypeWrapper.removeChild(creditBtn);
+    createInputField("debit",file);
+    
+  });
+
+  creditBtn.addEventListener("click", () => {
+    // createInputField("Credit");
+    // globalEntry.put({trns_type:"credit",acc:file.value,acc_name:file.description})
+    // accWrapper.classList.add("block_entry");
+    trnsTypeWrapper.removeChild(debitBtn);
+    trnsTypeWrapper.removeChild(creditBtn);
+    createInputField("credit",file);
+    
+  });
+
+    trnsTypeWrapper.appendChild(debitBtn);
+    trnsTypeWrapper.appendChild(creditBtn);
+
   const fileWrapper = document.createElement("div");
   fileWrapper.className = "file_wrapper";
   fileWrapper.title = file.description; 
@@ -331,7 +570,7 @@ const createSvgElement = () => {
 //   fileWrapper.addEventListener("click", file_switching_process);
 
 fileWrapper.appendChild(createSvgElement())
-
+fileWrapper.setAttribute("trns-account-name","")
   const spanElement = document.createElement("span");
   spanElement.innerText = limit_string(file.description, 20);
 
@@ -339,9 +578,12 @@ fileWrapper.appendChild(createSvgElement())
 //     spanElement.style.color = "var(--app-color-code)";
 //   }
   
-  fileWrapper.appendChild(spanElement);
+   fileWrapper.appendChild(spanElement);
+   accWrapper.appendChild(fileWrapper);
+   accWrapper.appendChild(trnsTypeWrapper);
 
-  return fileWrapper;
+
+  return accWrapper;
 }
 
 function createMappedAccounts() {
@@ -360,6 +602,31 @@ function createMappedAccounts() {
   createMappedAccounts().forEach((ele) => {
     accountsSection.appendChild(ele);
   });
+
+//   kahi change nko karu mi kartoy
+
+  function drop_show() {
+    const open_drop = document.getElementById("input_data").value;
+  const element_drop = document.getElementsByClassName("drop_down_for_input_data");
+  const searchaccount = document.getElementById("search-accounts-sec")
+  console.log(open_drop)
+
+  if (open_drop) {
+        console.log("yes");
+       element_drop[0].style.display = "block"
+
+          // Append each span element to the container
+       createMappedAccounts().forEach((ele) => {
+         searchaccount.appendChild(ele);
+       });
+    } 
+    else {
+    element_drop[0].style.display = "none"
+  }
+  } 
+
+  drop_show()
+
         </script>
         <script src="/src/scripts/jeren-block-hide.js"></script>
     </div>

@@ -15,8 +15,8 @@
 }
 
 .main_wrapper .sub_wrapper {
-    max-width: 550px;
-    width: 550px;
+    max-width: 580px;
+    width: 580px;
     min-width: 500px;
     height: calc(100vh - 20vh);
     overflow: hidden;
@@ -29,18 +29,21 @@
     display: flex;
     width: inherit;
     /* gap: 5px; */
-    height: inherit;
+    height: 100%;
 }
 
 .j_content_section .j_lhs_section {
-    flex-basis: 230px;
+    flex-basis: 250px;
     background-color: rgba(242, 241, 238, 0.6);
     border-right: 1px solid #eee;
     /* border-radius: 3px; */
     height: 100%;
     display: flex;
     flex-direction: column;
+    position: relative;
 }
+
+
 
 .j_lhs_section .j_lhs_section_search {
     
@@ -106,7 +109,7 @@
     align-items: center;
     width: 100%;
     font-size: 12px;
-    min-height: 23px;
+    min-height: 25px;
     padding: 5px 0px;
     margin-top: 1px;
     margin-bottom: 1px;
@@ -127,17 +130,21 @@
     align-items: center;
     gap: 12px;
     padding: 12px 0px;
+    border-bottom: 1px solid #eee;
+  }
+  .form_tabs_wrapper .tabs_wrapper {
+    padding-right: 10px;
   }
   .form_tabs_wrapper .tabs_wrapper .j_tabs ,.text_content_small {
     font-size: 12px;
-    color: var( --main-font-secondary-color);
+    color: var(--main-font-secondary-color);
     cursor: pointer;
     height: inherit;
     display: flex;
     justify-content: center;
     align-items: center;
     list-style: none;
-    color: #424245;
+    /* color: #424245; */
     font-size: 12px;
     min-width: 45px;
     letter-spacing: .02em;
@@ -173,9 +180,125 @@
 
   .global_inactive {
     opacity: .8;
-    pointer-events: none;
+    /* pointer-events: none; */
     user-select: none;
   }
+
+  .account_list_wrapper {
+    position: relative;
+  }
+
+  .trns_btn_wrapper {
+    display: flex;
+    gap: 10px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none; /* Prevent interaction when hidden */
+    transition: opacity 0.3s ease, visibility 0.3s ease; /* Smooth animation */
+  }
+  .trns_btn_wrapper.visible {
+    position: unset;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto; /* Enable interaction when visible */
+}
+  .trns_type_btn {
+    padding: 5px 3px;
+    cursor: pointer;
+    border: 1px solid #eee;
+    border-radius: 3px;
+    font-size: 12px;
+    color: white;
+    z-index: 999;
+  }
+  .trns_type_btn:hover {
+    opacity: .9;
+  }
+  .debit_btn_cta {
+    flex: 1;
+    background-color: #DF6D2D;
+  }
+  .credit_btn_cta {
+    flex: 1;
+    background-color: #075E54;
+  }
+  #trns_listing_container {
+    padding-top: 10px;
+  }
+  #trns_listing_container span {
+    font-size: 12px;
+
+  }
+  #trns_listing_container h4 {
+    font-size: 14px;
+    color:#424245;
+    padding-bottom: 8px;
+  }
+  .trns_debit_transaction {
+    color: #DF6D2D;
+  } 
+  .trns_credit_transaction {
+    color: #638C6D;
+  } 
+  .block_entry {
+    opacity: .7;
+    pointer-events: none;
+  }
+
+  .diable_locking_btn {
+    opacity: .7;
+  }
+
+  .j_lhs_section .j_lhs_section_first .input_wrapper {
+    width: inherit;
+    height: var(--app--lhssearchbar-height);
+    border-bottom: 1px solid #eee;
+    padding: 3px 5px;
+    display: flex;
+    align-items: center;
+}
+.j_lhs_section .j_lhs_section_first .input_wrapper button {
+    padding: 5px 8px;
+    font-size: 12px;
+    border: 1px solid #eee;
+    cursor: pointer;
+    border-radius: 3px;
+    color: white;
+    background-color: var(--app-main-color);
+}
+.j_lhs_section .j_lhs_section_first .input_wrapper button:hover {
+  opacity: .8;
+}
+
+.j_lhs_section .j_lhs_section_first .input_wrapper input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    background-color: inherit;
+    font-size: var(--smallest-font-size);
+}
+
+
+.drop_down_for_input_data {
+  position: absolute;
+  width: 100%;
+  height: 300px;
+  top: 36px;
+  background: white;
+  border-radius: 12px;
+  overflow-y: scroll;
+  display: none;
+}
+
+.drop_down_for_input_data #search-accounts-sec {
+   padding: 10px;
+}
+
   /* Mobile set View */
   
   @media only screen and (max-width: 650px) {
