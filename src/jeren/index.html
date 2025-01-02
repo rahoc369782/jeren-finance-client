@@ -22,7 +22,7 @@
     <!-- <link rel="stylesheet" href="/src/styles/plans.css"> -->
     <link rel="stylesheet" href="/src/styles/login.css" />
     <link rel="stylesheet" href="/src/styles/jeren.index.css" />
-    <script src="/src/scripts/main_processer.js"></script>
+    <script src="./src/scripts/main_processer.js"></script>
 
     <style></style>
   </head>
@@ -33,6 +33,11 @@
         <div class="header_container_wrapper">
           <nav class="global_header_container global_inactive">
             <div class="header_conatainer">
+                <div class="j_finance_branding">
+                    <span class="j_finance_branding_content" >J-FINANCE</span>
+                </div>
+                
+
               <div
                 id="_g_header_navbar_wrapper"
                 class="g_header_navbar_wrapper"
@@ -72,27 +77,27 @@
                     >Values</span
                   >
                 </div>
-                <div class="dropdown_block">
-                  <span
-                    id="weare_nav_tab"
-                    g_nav_header_tab
-                    class="dropdown_block_heading"
-                    >Weare</span
-                  >
-                </div>
-                <div class="dropdown_block">
-                  <span
-                    id="news_nav_tab"
-                    g_nav_header_tab
-                    class="dropdown_block_heading end_block"
-                    >Updates</span
-                  >
-                </div>  -->
+                  -->
                 <!-- <div class="dropdown_block">
                                     <span id="news_nav_tab" g_nav_header_tab class="dropdown_block_heading">Manual</span>
                                 </div> -->
-
-                <span style="font-weight: 600;">J-FINANCE TRACKER</span>
+              
+                <div class="dropdown_block">
+                    <span
+                      id="weare_nav_tab"
+                      g_nav_header_tab
+                      class="dropdown_block_heading"
+                      >Weare</span
+                    >
+                  </div>
+                  <div class="dropdown_block">
+                    <span
+                      id="news_nav_tab"
+                      g_nav_header_tab
+                      class="dropdown_block_heading end_block"
+                      >Updates</span
+                    >
+                  </div>
               </div>
             </div>
           </nav>
@@ -626,25 +631,12 @@
         async function generateTransactionObjForSumbmission() {
           const currEntries = globalEntry.getEntries();
           const trnsTitle = globalEntry.getTitle();
-          const sample = {
-            timestamp: "1735623813832",
-            accounts: {
-              debit: [
-                { account_label: "expense:personal:office:food", amount: 35 },
-              ],
-              credit: [
-                { account_label: "assets:bank:expense:federal", amount: 35 },
-              ],
-            },
-            description: "Purchase breakfast from office canteen.",
-            date: "2024/12/31",
-            tags: ["purchase", "breakfast", "office"],
-          };
+          const trnsDate = globalEntry.getDate();
           const trns = {};
           trns["timestamp"] = Date.now();
           trns["accounts"] = { debit: [], credit: [] };
           trns["description"] = trnsTitle;
-          trns["date"] = "2025/01/01";
+          trns["date"] = trnsDate;
 
           currEntries.forEach((entry) => {
             const entryObj = {

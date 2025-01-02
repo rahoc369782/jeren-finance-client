@@ -299,6 +299,15 @@
    padding: 10px;
 }
 
+.j_finance_branding {
+    flex-basis: 130px;
+    padding: 0px 10px;
+}
+.j_finance_branding span {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--app-main-color);
+}
   /* Mobile set View */
   
   @media only screen and (max-width: 650px) {

@@ -108,7 +108,7 @@ a {
 
 .g_header_navbar_wrapper {
     display: flex;
-    justify-content: center;
+    justify-content: right;
     align-items: center;
     height: inherit;
     flex-grow: 1;
