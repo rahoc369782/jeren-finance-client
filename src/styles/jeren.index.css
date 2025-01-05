@@ -29,8 +29,8 @@
     display: flex;
     width: inherit;
     /* gap: 5px; */
-    /* height: 100%; */
-    height: 540px;
+    height: 100%;
+    /* height: 540px; */
 }
 
 .j_content_section .j_lhs_section {

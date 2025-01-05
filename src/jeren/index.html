@@ -22,7 +22,7 @@
     <!-- <link rel="stylesheet" href="/src/styles/plans.css"> -->
     <link rel="stylesheet" href="/src/styles/login.css" />
     <link rel="stylesheet" href="/src/styles/jeren.index.css" />
-    <script src="./src/scripts/main_processer.js"></script>
+    <script src="/src/scripts/main_processer.js"></script>
 
     <style></style>
   </head>
@@ -269,20 +269,20 @@
         const j_allowed_accounts = [
           // Expense Accounts
           {
-            name: "assets:bank:expense:federal",
-            value: "assets:bank:expense:federal",
+            name: "assets:bank:exfederal",
+            value: "assets:bank:exfederal",
             description: "Federal Bank - Expense Account",
           },
 
           // Saving Subcategories Account
           {
-            name: "assets:bank:savings:sbi:home",
-            value: "assets:bank:savings:sbi:home",
+            name: "assets:bank:svsbi:home",
+            value: "assets:bank:svsbi:home",
             description: "SBI Savings - Home Fund",
           },
           {
-            name: "assets:bank:savings:sbi:creditors:akansha",
-            value: "assets:bank:savings:sbi:creditors:akansha",
+            name: "assets:bank:svsbi:creditors:akansha",
+            value: "assets:bank:svsbi:creditors:akansha",
             description: "SBI Savings - Creditor Akansha",
           },
 
@@ -300,43 +300,27 @@
 
           // Emergency Fund Account
           {
-            name: "assets:bank:emergency:idfc",
-            value: "assets:bank:emergency:idfc",
+            name: "assets:bank:emidfc",
+            value: "assets:bank:emidfc",
             description: "IDFC - Emergency Fund Account",
           },
 
           // Income Subcategories sources
           {
-            name: "assets:bank:income:icici:salary",
-            value: "assets:bank:income:icici:salary",
-            description: "ICICI Bank - Salary Income",
+            name: "assets:bank:inicici",
+            value: "assets:bank:inicici",
+            description: "ICICI Bank - Income Account",
           },
-          {
-            name: "assets:bank:income:icici:freelancing",
-            value: "assets:bank:income:icici:freelancing",
-            description: "ICICI Bank - Freelancing Income",
-          },
-          {
-            name: "assets:bank:income:icici:dividend",
-            value: "assets:bank:income:icici:dividend",
-            description: "ICICI Bank - Dividend Income",
-          },
-          {
-            name: "assets:bank:income:icici:profit",
-            value: "assets:bank:income:icici:profit",
-            description: "ICICI Bank - Profit Income",
-          },
-          {
-            name: "assets:bank:income:icici:others",
-            value: "assets:bank:income:icici:others",
-            description: "ICICI Bank - Other Income",
-          },
-
           // Income sources
           {
             name: "income:source:salary",
             value: "income:source:salary",
             description: "Salary Income Received",
+          },
+          {
+            name: "income:source:dividend",
+            value: "income:source:dividend",
+            description: "Dividend Income Received",
           },
           {
             name: "income:source:freelancing",
@@ -391,9 +375,9 @@
             description: "Travel Expenses",
           },
           {
-            name: "expense:household",
-            value: "expense:household",
-            description: "Household Expenses",
+            name: "expense:household:monthly",
+            value: "expense:household:monthly",
+            description: "Household Monthly Expenses",
           },
           {
             name: "expense:household:rent",
@@ -423,34 +407,29 @@
 
           // *Investments* (under assets)
           {
-            name: "assets:bank:investments:axis:mf",
-            value: "assets:bank:investments:axis:mf",
+            name: "assets:bank:ivaxis:mf",
+            value: "assets:bank:ivaxis:mf",
             description: "Axis Bank - Mutual Funds Investment",
           },
           {
-            name: "assets:bank:investments:axis:trading",
-            value: "assets:bank:investments:axis:trading",
+            name: "assets:bank:ivaxis:trading",
+            value: "assets:bank:ivaxis:trading",
             description: "Axis Bank - Trading Investments",
           },
           {
-            name: "assets:bank:investments:axis:longterm",
-            value: "assets:bank:investments:axis:longterm",
+            name: "assets:bank:ivaxis:longterm",
+            value: "assets:bank:ivaxis:longterm",
             description: "Axis Bank - Long-term Investments",
           },
           {
-            name: "assets:bank:investments:axis:gold",
-            value: "assets:bank:investments:axis:gold",
+            name: "assets:bank:ivaxis:gold",
+            value: "assets:bank:ivaxis:gold",
             description: "Axis Bank - Gold Investments",
           },
           {
             name: "assets:investments:stocks",
             value: "assets:investments:stocks",
             description: "Stocks Investments",
-          },
-          {
-            name: "assets:investments:mutual_funds",
-            value: "assets:investments:mutual_funds",
-            description: "Mutual Funds Investments",
           },
           {
             name: "assets:investments:mutual_funds:coin",
