@@ -1,93 +1,957 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Space</title>
-    <link rel="stylesheet" href="./src/styles/main.css">
-    <link rel="stylesheet" href="./styles/main.css">
-    <link rel="stylesheet" href="./styles/sp_nav.css">
-    <link rel="stylesheet" href="./styles/plans.css">
-    <script src="../scripts/plans.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Mono:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="sp_nav.css" />
+    <!-- <link rel="stylesheet" href="/src/styles/plans.css"> -->
+    <link rel="stylesheet" href="login.css" />
+    <link rel="stylesheet" href="jeren.index.css" />
+    <script src="main_processer.js"></script>
+    <style></style>
+  </head>
 
-</head>
-
-<body>
-    <div class="main_section">
-        <div>
-            <nav class="global_header_container">
-                <div class="header_conatainer">
-                    <div id="_g_header_navbar_wrapper" class="g_header_navbar_wrapper">
-                        <div class="dropdown_block">
-                            <span class="dropdown_block_heading">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="38" height="42" viewBox="0 0 99 42"
-                                    fill="none">
-                                    <path
-                                        d="M2.05078 7.11719H11.604C13.5067 7.11719 15.153 7.40202 16.543 7.97168C17.9443 8.54134 19.021 9.38444 19.7729 10.501C20.5249 11.6175 20.9009 12.9961 20.9009 14.6367C20.9009 16.0039 20.6787 17.166 20.2344 18.123C19.79 19.0801 19.1634 19.8719 18.3545 20.4985C17.557 21.1252 16.6227 21.6322 15.5518 22.0195L13.7402 23.0107H5.60547L5.57129 18.687H11.6211C12.4528 18.687 13.1421 18.5389 13.689 18.2427C14.2358 17.9465 14.646 17.5306 14.9194 16.9951C15.2043 16.4482 15.3467 15.8102 15.3467 15.0811C15.3467 14.3291 15.2043 13.6797 14.9194 13.1328C14.6346 12.5859 14.2131 12.1701 13.6548 11.8853C13.1079 11.589 12.4243 11.4409 11.604 11.4409H7.62207V32H2.05078V7.11719ZM15.8252 32L10.2368 20.9429L16.1157 20.9258L21.7896 31.7437V32H15.8252ZM23.7549 22.9424V22.5835C23.7549 21.2277 23.9486 19.9801 24.3359 18.8408C24.7233 17.6901 25.2873 16.6932 26.0278 15.8501C26.7684 15.007 27.6799 14.3519 28.7622 13.8848C29.8446 13.4062 31.0864 13.167 32.4878 13.167C33.8892 13.167 35.1367 13.4062 36.2305 13.8848C37.3242 14.3519 38.2414 15.007 38.9819 15.8501C39.7339 16.6932 40.3035 17.6901 40.6909 18.8408C41.0783 19.9801 41.272 21.2277 41.272 22.5835V22.9424C41.272 24.2868 41.0783 25.5343 40.6909 26.6851C40.3035 27.8244 39.7339 28.8213 38.9819 29.6758C38.2414 30.5189 37.3299 31.174 36.2476 31.6411C35.1652 32.1082 33.9233 32.3418 32.522 32.3418C31.1206 32.3418 29.873 32.1082 28.7793 31.6411C27.6969 31.174 26.7798 30.5189 26.0278 29.6758C25.2873 28.8213 24.7233 27.8244 24.3359 26.6851C23.9486 25.5343 23.7549 24.2868 23.7549 22.9424ZM28.6768 22.5835V22.9424C28.6768 23.7171 28.7451 24.4406 28.8818 25.1128C29.0186 25.785 29.235 26.3774 29.5312 26.8901C29.8389 27.3914 30.2376 27.7845 30.7275 28.0693C31.2174 28.3542 31.8156 28.4966 32.522 28.4966C33.2056 28.4966 33.7923 28.3542 34.2822 28.0693C34.7721 27.7845 35.1652 27.3914 35.4614 26.8901C35.7576 26.3774 35.9741 25.785 36.1108 25.1128C36.259 24.4406 36.333 23.7171 36.333 22.9424V22.5835C36.333 21.8315 36.259 21.1252 36.1108 20.4644C35.9741 19.7922 35.752 19.1997 35.4443 18.687C35.1481 18.1629 34.755 17.7528 34.2651 17.4565C33.7752 17.1603 33.1828 17.0122 32.4878 17.0122C31.7928 17.0122 31.2004 17.1603 30.7104 17.4565C30.2319 17.7528 29.8389 18.1629 29.5312 18.687C29.235 19.1997 29.0186 19.7922 28.8818 20.4644C28.7451 21.1252 28.6768 21.8315 28.6768 22.5835ZM54.2773 27.8301V19.5928C54.2773 19.0003 54.1805 18.4933 53.9868 18.0718C53.7931 17.6388 53.4912 17.3027 53.0811 17.0635C52.6823 16.8242 52.1639 16.7046 51.5259 16.7046C50.979 16.7046 50.5062 16.8014 50.1074 16.9951C49.7087 17.1774 49.401 17.4451 49.1846 17.7983C48.9681 18.1401 48.8599 18.5446 48.8599 19.0117H43.938C43.938 18.2256 44.1203 17.4793 44.4849 16.7729C44.8494 16.0666 45.3792 15.4456 46.0742 14.9102C46.7692 14.3633 47.5952 13.936 48.5522 13.6284C49.5207 13.3208 50.603 13.167 51.7993 13.167C53.2349 13.167 54.5109 13.4062 55.6274 13.8848C56.744 14.3633 57.6213 15.0811 58.2593 16.0381C58.9087 16.9951 59.2334 18.1914 59.2334 19.627V27.5396C59.2334 28.5535 59.2961 29.3853 59.4214 30.0347C59.5467 30.6727 59.729 31.231 59.9683 31.7095V32H54.9951C54.7559 31.4987 54.5736 30.8721 54.4482 30.1201C54.3343 29.3568 54.2773 28.5934 54.2773 27.8301ZM54.9268 20.7378L54.9609 23.5234H52.2095C51.5601 23.5234 50.9961 23.5975 50.5176 23.7456C50.0391 23.8937 49.646 24.1045 49.3384 24.3779C49.0308 24.64 48.8029 24.9476 48.6548 25.3008C48.5181 25.654 48.4497 26.0413 48.4497 26.4629C48.4497 26.8844 48.5465 27.2661 48.7402 27.6079C48.9339 27.9383 49.2131 28.2004 49.5776 28.394C49.9422 28.5763 50.3695 28.6675 50.8594 28.6675C51.5999 28.6675 52.2437 28.5194 52.7905 28.2231C53.3374 27.9269 53.759 27.5623 54.0552 27.1294C54.3628 26.6965 54.5223 26.2863 54.5337 25.8989L55.8325 27.9839C55.6502 28.451 55.3996 28.9352 55.0806 29.4365C54.7729 29.9378 54.3799 30.4106 53.9014 30.855C53.4229 31.2879 52.8475 31.6468 52.1753 31.9316C51.5031 32.2051 50.7056 32.3418 49.7827 32.3418C48.6092 32.3418 47.5439 32.1082 46.5869 31.6411C45.6413 31.1626 44.8893 30.5075 44.3311 29.6758C43.7842 28.8327 43.5107 27.8757 43.5107 26.8047C43.5107 25.8363 43.693 24.9761 44.0576 24.2241C44.4222 23.4722 44.9577 22.8398 45.6641 22.3271C46.3818 21.8031 47.2762 21.41 48.3472 21.1479C49.4181 20.8745 50.66 20.7378 52.0728 20.7378H54.9268ZM73.9478 27.9668V5.75H78.9038V32H74.4434L73.9478 27.9668ZM62.2583 22.9766V22.6177C62.2583 21.2049 62.4178 19.9232 62.7368 18.7725C63.0558 17.6104 63.5229 16.6134 64.1382 15.7817C64.7534 14.95 65.5111 14.3063 66.4111 13.8506C67.3112 13.3949 68.3366 13.167 69.4873 13.167C70.5697 13.167 71.5153 13.3949 72.3242 13.8506C73.1445 14.3063 73.8395 14.9557 74.4092 15.7988C74.9902 16.6305 75.4574 17.616 75.8105 18.7554C76.1637 19.8833 76.4201 21.1195 76.5796 22.4639V23.25C76.4201 24.5374 76.1637 25.7337 75.8105 26.8389C75.4574 27.944 74.9902 28.9124 74.4092 29.7441C73.8395 30.5645 73.1445 31.2025 72.3242 31.6582C71.5039 32.1139 70.5469 32.3418 69.4531 32.3418C68.3024 32.3418 67.277 32.1082 66.377 31.6411C65.4883 31.174 64.7363 30.5189 64.1211 29.6758C63.5173 28.8327 63.0558 27.8415 62.7368 26.7021C62.4178 25.5628 62.2583 24.321 62.2583 22.9766ZM67.1802 22.6177V22.9766C67.1802 23.7399 67.2371 24.452 67.3511 25.1128C67.4764 25.7736 67.6758 26.3604 67.9492 26.873C68.234 27.3743 68.5986 27.7674 69.043 28.0522C69.4987 28.3257 70.0513 28.4624 70.7007 28.4624C71.5438 28.4624 72.2388 28.2744 72.7856 27.8984C73.3325 27.5111 73.7484 26.9813 74.0332 26.3091C74.3294 25.6369 74.5003 24.8621 74.5459 23.9849V21.7461C74.5117 21.0283 74.4092 20.3846 74.2383 19.8149C74.0788 19.2339 73.8395 18.7383 73.5205 18.3281C73.2129 17.918 72.8255 17.599 72.3584 17.3711C71.9027 17.1432 71.3615 17.0293 70.7349 17.0293C70.0968 17.0293 69.55 17.1774 69.0942 17.4736C68.6385 17.7585 68.2682 18.1515 67.9834 18.6528C67.71 19.1541 67.5049 19.7466 67.3682 20.4302C67.2428 21.1024 67.1802 21.8315 67.1802 22.6177ZM92.7466 26.8901C92.7466 26.5369 92.644 26.2179 92.439 25.9331C92.2339 25.6483 91.8522 25.3862 91.2939 25.147C90.7471 24.8963 89.9552 24.6685 88.9185 24.4634C87.9842 24.2583 87.1126 24.002 86.3037 23.6943C85.5062 23.3753 84.8112 22.9937 84.2188 22.5493C83.6377 22.105 83.182 21.5809 82.8516 20.9771C82.5212 20.3618 82.356 19.6611 82.356 18.875C82.356 18.1003 82.5212 17.3711 82.8516 16.6875C83.1934 16.0039 83.6776 15.4001 84.3042 14.876C84.9422 14.3405 85.717 13.9246 86.6284 13.6284C87.5513 13.3208 88.5881 13.167 89.7388 13.167C91.3452 13.167 92.7238 13.4233 93.8745 13.936C95.0366 14.4487 95.9253 15.1551 96.5405 16.0552C97.1672 16.9438 97.4805 17.9578 97.4805 19.0972H92.5586C92.5586 18.6187 92.4561 18.1914 92.251 17.8154C92.0573 17.4281 91.7497 17.1261 91.3281 16.9097C90.918 16.6818 90.3825 16.5679 89.7217 16.5679C89.1748 16.5679 88.702 16.6647 88.3032 16.8584C87.9045 17.0407 87.5968 17.2913 87.3804 17.6104C87.1753 17.918 87.0728 18.2598 87.0728 18.6357C87.0728 18.9206 87.1297 19.1769 87.2437 19.4048C87.369 19.6213 87.5684 19.8206 87.8418 20.0029C88.1152 20.1852 88.4684 20.3561 88.9014 20.5156C89.3457 20.6637 89.8926 20.8005 90.542 20.9258C91.875 21.1992 93.0656 21.5581 94.1138 22.0024C95.1619 22.4354 95.9937 23.0278 96.6089 23.7798C97.2241 24.5203 97.5317 25.4945 97.5317 26.7021C97.5317 27.5225 97.3494 28.2744 96.9849 28.958C96.6203 29.6416 96.0962 30.2397 95.4126 30.7524C94.729 31.2537 93.9087 31.6468 92.9517 31.9316C92.006 32.2051 90.9408 32.3418 89.7559 32.3418C88.0355 32.3418 86.5771 32.0342 85.3809 31.4189C84.196 30.8037 83.2959 30.0233 82.6807 29.0776C82.0768 28.1206 81.7749 27.1408 81.7749 26.1382H86.4404C86.4632 26.8104 86.6341 27.3516 86.9531 27.7617C87.2835 28.1719 87.6994 28.4681 88.2007 28.6504C88.7134 28.8327 89.266 28.9238 89.8584 28.9238C90.4964 28.9238 91.0262 28.8384 91.4478 28.6675C91.8693 28.4852 92.1883 28.2459 92.4048 27.9497C92.6326 27.6421 92.7466 27.2889 92.7466 26.8901Z"
-                                        fill="#1D1D1F" />
-                                    <path d="M0 36H45.2119L55 42H0V36Z" fill="#1D1D1F" />
-                                    <path d="M60 36H99V42H67.1341L60 36Z" fill="#1D1D1F" />
-                                </svg>
-                            </span>
-                        </div>
-                       
-                        <div class="dropdown_block">
-                            <span id="shoes_nav_tab" g_nav_header_tab class="dropdown_block_heading">Home</span>
-                        </div>
-                        <div class="dropdown_block">
-                            <span id="weare_nav_tab" g_nav_header_tab class="dropdown_block_heading">Values</span>
-                        </div>
-                        <div class="dropdown_block">
-                            <span id="weare_nav_tab" g_nav_header_tab class="dropdown_block_heading">Weare</span>
-                        </div>
-                        <div class="dropdown_block">
-                            <span id="news_nav_tab" g_nav_header_tab class="dropdown_block_heading">Updates</span>
-                        </div>
-                        <div class="dropdown_block">
-                            <span id="news_nav_tab" g_nav_header_tab class="dropdown_block_heading">Manual</span>
-                        </div>
-                        <div class="dropdown_block">
-                            <span id="support_nav_tab" g_nav_header_tab class="dropdown_block_heading">Support</span>
-                        </div>
-                    </div>
+  <body>
+    <div class="main_wrapper">
+      <div id="j_fin_entire_sec" class="sub_wrapper">
+        <div class="header_container_wrapper">
+          <nav class="global_header_container global_inactive">
+            <div class="header_conatainer">
+                <div class="j_finance_branding">
+                    <span class="j_finance_branding_content" >J-FINANCE</span>
                 </div>
-            </nav>
-        </div>
-        <div process-status-strip class="account_activated_warning">
-            <span account-status-msg></span>
-        </div>
-        <div g-nav-container class="plans_strip_container">
-            <div class="plans_strip">
-                <div g-strip-container class="plans_main_wrapper">
-                    <h4 class="">Designed and think for everyone to make difference.</h4>
-                    <div class="plans_sub_wrapper">
-                        <div class="plans_wrapper">
-                            <div class="p_wrapper_title">Space monthly plane</div>
-                            <div class="p_wrapper_price">From Rs 130 /- (Flexible and Affordable)</div>
-                            <div class="p_wrapper_condition">Create upto 5 Timelines</div>
-                            <div class="p_wrapper_condition">You create more timelines as per you need.</div>
-                            <div class="p_process_btn"><a>Proceed</a></div>
-                        </div>
-                        <div class="plans_wrapper">
-                            <div class="p_wrapper_title">Space anually plane</div>
-                            <div class="p_wrapper_price">From Rs 1300 /- (One time & save Rs 200/-)</div>
-                            <div class="p_wrapper_condition">Create upto 5 Timelines</div>
-                            <div class="p_wrapper_condition"></div>
-                            <div class="p_process_btn"><a>Proceed</a></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div data="login-overlay" class="overlay"></div>
-        <main class="content">
-            <div class="content_wrapper">
                 
-            </div>
-        </main>
-    </div>
-</body>
 
+              <div
+                id="_g_header_navbar_wrapper"
+                class="g_header_navbar_wrapper"
+              >
+               <!-- <div class="dropdown_block"> 
+                  <span class="dropdown_block_heading">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="38"
+                      height="42"
+                      viewBox="0 0 99 42"
+                      fill="none"
+                    >
+                      <path
+                        d="M2.05078 7.11719H11.604C13.5067 7.11719 15.153 7.40202 16.543 7.97168C17.9443 8.54134 19.021 9.38444 19.7729 10.501C20.5249 11.6175 20.9009 12.9961 20.9009 14.6367C20.9009 16.0039 20.6787 17.166 20.2344 18.123C19.79 19.0801 19.1634 19.8719 18.3545 20.4985C17.557 21.1252 16.6227 21.6322 15.5518 22.0195L13.7402 23.0107H5.60547L5.57129 18.687H11.6211C12.4528 18.687 13.1421 18.5389 13.689 18.2427C14.2358 17.9465 14.646 17.5306 14.9194 16.9951C15.2043 16.4482 15.3467 15.8102 15.3467 15.0811C15.3467 14.3291 15.2043 13.6797 14.9194 13.1328C14.6346 12.5859 14.2131 12.1701 13.6548 11.8853C13.1079 11.589 12.4243 11.4409 11.604 11.4409H7.62207V32H2.05078V7.11719ZM15.8252 32L10.2368 20.9429L16.1157 20.9258L21.7896 31.7437V32H15.8252ZM23.7549 22.9424V22.5835C23.7549 21.2277 23.9486 19.9801 24.3359 18.8408C24.7233 17.6901 25.2873 16.6932 26.0278 15.8501C26.7684 15.007 27.6799 14.3519 28.7622 13.8848C29.8446 13.4062 31.0864 13.167 32.4878 13.167C33.8892 13.167 35.1367 13.4062 36.2305 13.8848C37.3242 14.3519 38.2414 15.007 38.9819 15.8501C39.7339 16.6932 40.3035 17.6901 40.6909 18.8408C41.0783 19.9801 41.272 21.2277 41.272 22.5835V22.9424C41.272 24.2868 41.0783 25.5343 40.6909 26.6851C40.3035 27.8244 39.7339 28.8213 38.9819 29.6758C38.2414 30.5189 37.3299 31.174 36.2476 31.6411C35.1652 32.1082 33.9233 32.3418 32.522 32.3418C31.1206 32.3418 29.873 32.1082 28.7793 31.6411C27.6969 31.174 26.7798 30.5189 26.0278 29.6758C25.2873 28.8213 24.7233 27.8244 24.3359 26.6851C23.9486 25.5343 23.7549 24.2868 23.7549 22.9424ZM28.6768 22.5835V22.9424C28.6768 23.7171 28.7451 24.4406 28.8818 25.1128C29.0186 25.785 29.235 26.3774 29.5312 26.8901C29.8389 27.3914 30.2376 27.7845 30.7275 28.0693C31.2174 28.3542 31.8156 28.4966 32.522 28.4966C33.2056 28.4966 33.7923 28.3542 34.2822 28.0693C34.7721 27.7845 35.1652 27.3914 35.4614 26.8901C35.7576 26.3774 35.9741 25.785 36.1108 25.1128C36.259 24.4406 36.333 23.7171 36.333 22.9424V22.5835C36.333 21.8315 36.259 21.1252 36.1108 20.4644C35.9741 19.7922 35.752 19.1997 35.4443 18.687C35.1481 18.1629 34.755 17.7528 34.2651 17.4565C33.7752 17.1603 33.1828 17.0122 32.4878 17.0122C31.7928 17.0122 31.2004 17.1603 30.7104 17.4565C30.2319 17.7528 29.8389 18.1629 29.5312 18.687C29.235 19.1997 29.0186 19.7922 28.8818 20.4644C28.7451 21.1252 28.6768 21.8315 28.6768 22.5835ZM54.2773 27.8301V19.5928C54.2773 19.0003 54.1805 18.4933 53.9868 18.0718C53.7931 17.6388 53.4912 17.3027 53.0811 17.0635C52.6823 16.8242 52.1639 16.7046 51.5259 16.7046C50.979 16.7046 50.5062 16.8014 50.1074 16.9951C49.7087 17.1774 49.401 17.4451 49.1846 17.7983C48.9681 18.1401 48.8599 18.5446 48.8599 19.0117H43.938C43.938 18.2256 44.1203 17.4793 44.4849 16.7729C44.8494 16.0666 45.3792 15.4456 46.0742 14.9102C46.7692 14.3633 47.5952 13.936 48.5522 13.6284C49.5207 13.3208 50.603 13.167 51.7993 13.167C53.2349 13.167 54.5109 13.4062 55.6274 13.8848C56.744 14.3633 57.6213 15.0811 58.2593 16.0381C58.9087 16.9951 59.2334 18.1914 59.2334 19.627V27.5396C59.2334 28.5535 59.2961 29.3853 59.4214 30.0347C59.5467 30.6727 59.729 31.231 59.9683 31.7095V32H54.9951C54.7559 31.4987 54.5736 30.8721 54.4482 30.1201C54.3343 29.3568 54.2773 28.5934 54.2773 27.8301ZM54.9268 20.7378L54.9609 23.5234H52.2095C51.5601 23.5234 50.9961 23.5975 50.5176 23.7456C50.0391 23.8937 49.646 24.1045 49.3384 24.3779C49.0308 24.64 48.8029 24.9476 48.6548 25.3008C48.5181 25.654 48.4497 26.0413 48.4497 26.4629C48.4497 26.8844 48.5465 27.2661 48.7402 27.6079C48.9339 27.9383 49.2131 28.2004 49.5776 28.394C49.9422 28.5763 50.3695 28.6675 50.8594 28.6675C51.5999 28.6675 52.2437 28.5194 52.7905 28.2231C53.3374 27.9269 53.759 27.5623 54.0552 27.1294C54.3628 26.6965 54.5223 26.2863 54.5337 25.8989L55.8325 27.9839C55.6502 28.451 55.3996 28.9352 55.0806 29.4365C54.7729 29.9378 54.3799 30.4106 53.9014 30.855C53.4229 31.2879 52.8475 31.6468 52.1753 31.9316C51.5031 32.2051 50.7056 32.3418 49.7827 32.3418C48.6092 32.3418 47.5439 32.1082 46.5869 31.6411C45.6413 31.1626 44.8893 30.5075 44.3311 29.6758C43.7842 28.8327 43.5107 27.8757 43.5107 26.8047C43.5107 25.8363 43.693 24.9761 44.0576 24.2241C44.4222 23.4722 44.9577 22.8398 45.6641 22.3271C46.3818 21.8031 47.2762 21.41 48.3472 21.1479C49.4181 20.8745 50.66 20.7378 52.0728 20.7378H54.9268ZM73.9478 27.9668V5.75H78.9038V32H74.4434L73.9478 27.9668ZM62.2583 22.9766V22.6177C62.2583 21.2049 62.4178 19.9232 62.7368 18.7725C63.0558 17.6104 63.5229 16.6134 64.1382 15.7817C64.7534 14.95 65.5111 14.3063 66.4111 13.8506C67.3112 13.3949 68.3366 13.167 69.4873 13.167C70.5697 13.167 71.5153 13.3949 72.3242 13.8506C73.1445 14.3063 73.8395 14.9557 74.4092 15.7988C74.9902 16.6305 75.4574 17.616 75.8105 18.7554C76.1637 19.8833 76.4201 21.1195 76.5796 22.4639V23.25C76.4201 24.5374 76.1637 25.7337 75.8105 26.8389C75.4574 27.944 74.9902 28.9124 74.4092 29.7441C73.8395 30.5645 73.1445 31.2025 72.3242 31.6582C71.5039 32.1139 70.5469 32.3418 69.4531 32.3418C68.3024 32.3418 67.277 32.1082 66.377 31.6411C65.4883 31.174 64.7363 30.5189 64.1211 29.6758C63.5173 28.8327 63.0558 27.8415 62.7368 26.7021C62.4178 25.5628 62.2583 24.321 62.2583 22.9766ZM67.1802 22.6177V22.9766C67.1802 23.7399 67.2371 24.452 67.3511 25.1128C67.4764 25.7736 67.6758 26.3604 67.9492 26.873C68.234 27.3743 68.5986 27.7674 69.043 28.0522C69.4987 28.3257 70.0513 28.4624 70.7007 28.4624C71.5438 28.4624 72.2388 28.2744 72.7856 27.8984C73.3325 27.5111 73.7484 26.9813 74.0332 26.3091C74.3294 25.6369 74.5003 24.8621 74.5459 23.9849V21.7461C74.5117 21.0283 74.4092 20.3846 74.2383 19.8149C74.0788 19.2339 73.8395 18.7383 73.5205 18.3281C73.2129 17.918 72.8255 17.599 72.3584 17.3711C71.9027 17.1432 71.3615 17.0293 70.7349 17.0293C70.0968 17.0293 69.55 17.1774 69.0942 17.4736C68.6385 17.7585 68.2682 18.1515 67.9834 18.6528C67.71 19.1541 67.5049 19.7466 67.3682 20.4302C67.2428 21.1024 67.1802 21.8315 67.1802 22.6177ZM92.7466 26.8901C92.7466 26.5369 92.644 26.2179 92.439 25.9331C92.2339 25.6483 91.8522 25.3862 91.2939 25.147C90.7471 24.8963 89.9552 24.6685 88.9185 24.4634C87.9842 24.2583 87.1126 24.002 86.3037 23.6943C85.5062 23.3753 84.8112 22.9937 84.2188 22.5493C83.6377 22.105 83.182 21.5809 82.8516 20.9771C82.5212 20.3618 82.356 19.6611 82.356 18.875C82.356 18.1003 82.5212 17.3711 82.8516 16.6875C83.1934 16.0039 83.6776 15.4001 84.3042 14.876C84.9422 14.3405 85.717 13.9246 86.6284 13.6284C87.5513 13.3208 88.5881 13.167 89.7388 13.167C91.3452 13.167 92.7238 13.4233 93.8745 13.936C95.0366 14.4487 95.9253 15.1551 96.5405 16.0552C97.1672 16.9438 97.4805 17.9578 97.4805 19.0972H92.5586C92.5586 18.6187 92.4561 18.1914 92.251 17.8154C92.0573 17.4281 91.7497 17.1261 91.3281 16.9097C90.918 16.6818 90.3825 16.5679 89.7217 16.5679C89.1748 16.5679 88.702 16.6647 88.3032 16.8584C87.9045 17.0407 87.5968 17.2913 87.3804 17.6104C87.1753 17.918 87.0728 18.2598 87.0728 18.6357C87.0728 18.9206 87.1297 19.1769 87.2437 19.4048C87.369 19.6213 87.5684 19.8206 87.8418 20.0029C88.1152 20.1852 88.4684 20.3561 88.9014 20.5156C89.3457 20.6637 89.8926 20.8005 90.542 20.9258C91.875 21.1992 93.0656 21.5581 94.1138 22.0024C95.1619 22.4354 95.9937 23.0278 96.6089 23.7798C97.2241 24.5203 97.5317 25.4945 97.5317 26.7021C97.5317 27.5225 97.3494 28.2744 96.9849 28.958C96.6203 29.6416 96.0962 30.2397 95.4126 30.7524C94.729 31.2537 93.9087 31.6468 92.9517 31.9316C92.006 32.2051 90.9408 32.3418 89.7559 32.3418C88.0355 32.3418 86.5771 32.0342 85.3809 31.4189C84.196 30.8037 83.2959 30.0233 82.6807 29.0776C82.0768 28.1206 81.7749 27.1408 81.7749 26.1382H86.4404C86.4632 26.8104 86.6341 27.3516 86.9531 27.7617C87.2835 28.1719 87.6994 28.4681 88.2007 28.6504C88.7134 28.8327 89.266 28.9238 89.8584 28.9238C90.4964 28.9238 91.0262 28.8384 91.4478 28.6675C91.8693 28.4852 92.1883 28.2459 92.4048 27.9497C92.6326 27.6421 92.7466 27.2889 92.7466 26.8901Z"
+                        fill="#1D1D1F"
+                      />
+                      <path d="M0 36H45.2119L55 42H0V36Z" fill="#1D1D1F" />
+                      <path d="M60 36H99V42H67.1341L60 36Z" fill="#1D1D1F" />
+                    </svg>
+                  </span>
+                </div>
+
+                <div class="dropdown_block">
+                  <span
+                    id="shoes_nav_tab"
+                    g_nav_header_tab
+                    class="dropdown_block_heading"
+                    >Home</span
+                  >
+                </div>
+                <div class="dropdown_block">
+                  <span
+                    id="weare_nav_tab"
+                    g_nav_header_tab
+                    class="dropdown_block_heading"
+                    >Values</span
+                  >
+                </div>
+                  -->
+                <!-- <div class="dropdown_block">
+                                    <span id="news_nav_tab" g_nav_header_tab class="dropdown_block_heading">Manual</span>
+                                </div> -->
+              
+                <div class="dropdown_block">
+                    <span
+                      id="weare_nav_tab"
+                      g_nav_header_tab
+                      class="dropdown_block_heading"
+                      >Weare</span
+                    >
+                  </div>
+                  <div class="dropdown_block">
+                    <span
+                      id="news_nav_tab"
+                      g_nav_header_tab
+                      class="dropdown_block_heading end_block"
+                      >Updates</span
+                    >
+                  </div>
+              </div>
+            </div>
+          </nav>
+          <div id="_j_start_cta" class="dropdown_block special_block">
+            <span
+              onclick="start_process('add','_j_start_cta','j_trns_type_tabs_sec',{text:'Select Transaction type.',status:'info'})"
+              g_nav_header_tab
+              class="dropdown_block_heading"
+              >Add Transaction</span
+            >
+          </div>
+        </div>
+        <div
+          id="status_strip_wrapper"
+          class="plans_strip_container global_inactive"
+        >
+          <span class="text_content_small" id="account-status-msg"
+            >You can add transaction by clicking on Add Transaction.</span
+          >
+        </div>
+
+        <main class="j_content_section">
+          <section id="_j_lhs_sec" class="j_lhs_section global_inactive">
+            <div class="j_lhs_section_search">
+              <div class="search_bar_wrapper">
+                <div class="svg_wrapper">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="#666"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="feather feather-search"
+                  >
+                    <circle cx="11" cy="11" r="8" />
+                    <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                  </svg>
+                </div>
+                <input
+                  title="accounts_search"
+                  type="text"
+                  placeholder="Search accounts here..."
+                  id="input_data"
+                  oninput="drop_show()"
+                  autocomplete="off"
+                />
+              </div>
+            </div>
+            <div class="j_lhs_section_first">
+              <div id="fin-accounts-sec"></div>
+            </div>
+            <div class="j_lhs_section_two">
+              <div class="form_btn input_spacing">
+                <button
+                  id="lock-trns-btn"
+                  disabled
+                  onb-password-btn
+                  class="diable_locking_btn"
+                  onclick="lock_entries(event)"
+                  onb-lg-email-btn
+                >
+                  Lock Transaction Entries
+                </button>
+              </div>
+            </div>
+            <div class="drop_down_for_input_data">
+              <div class="list_all_data">
+                <div id="search-accounts-sec">df</div>
+              </div>
+            </div>
+          </section>
+          <section class="j_rhs_section">
+            <div class="jeren_trns_form_container">
+              <div
+                id="j_trns_type_tabs_sec"
+                class="form_tabs_wrapper global_inactive"
+              >
+                <div class="tabs_wrapper">
+                  <span class="j_tabs">Regular</span>
+                </div>
+                <div class="tabs_wrapper">
+                  <span class="j_tabs">Investment</span>
+                </div>
+                <div class="tabs_wrapper">
+                  <span class="j_tabs">Saved</span>
+                </div>
+              </div>
+              <!-- <div class="transactions_debit_entries">
+                        <div class="debit_entries_wrapper">
+                            <h4 class="entries_title">Debit Entries</h4>
+                        </div>
+                        <div class="trns_individual_entry">
+                            <span user-unique-id>assets:investment:mf</span>
+                            <span user-unique-id>30,000</span>
+                        </div>
+                        <div class="trns_individual_entry">
+                            <span user-unique-id>assets:investment:mf</span>
+                            <span user-unique-id>30,000</span>
+                        </div>
+                        <div class="trns_individual_entry">
+                            <span user-unique-id>assets:investment:mf</span>
+                            <span user-unique-id>30,000</span>
+                        </div>
+                    </div> -->
+              <!-- <div class=""> -->
+              <div id="trns_listing_container"></div>
+              <!-- </div> -->
+
+              <div
+                id="j_trns_form_sec"
+                class="trns_form_wrapper global_inactive"
+              >
+                <div class="trns_form_subwrapper">
+                  <div class="form_input input_spacing">
+                    <input
+                      onfocus="disable_wrong_input()"
+                      autofocus
+                      btn="onb-password-btn"
+                      id="trns_title_value"
+                      common-input
+                      required
+                      spellcheck="false"
+                      placeholder=""
+                    />
+                    <label for="">Title of transaction</label>
+                  </div>
+                  <div class="form_input input_spacing">
+                    <input
+                      type="date"
+                      btn="onb-password-btn"
+                      id="trns_date_value"
+                      common-input
+                      required
+                      spellcheck="false"
+                    />
+                    <label for=""></label>
+                  </div>
+
+                  <div class="login_opts input_spacing">
+                    <div class="session_opt_block">
+                      <input id="session_opt" type="checkbox" />
+                      <label for="session_opt" class="duration">
+                        Start blur mode</label
+                      >
+                    </div>
+                    <span>Forgot password</span>
+                  </div>
+                  <div class="wrapper_other_onboardinopt input_spacing">
+                    <span user-unique-id>Data to present</span>
+                    <label onclick="openlgBlock(event, 'p')">change</label>
+                  </div>
+                  <div class="form_btn input_spacing">
+                    <button onclick="finalFormSubmit()" onb-lg-email-btn>
+                      Submit Transaction
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </main>
+      </div>
+
+      <script>
+        const j_allowed_accounts = [
+          // Expense Accounts
+          {
+            name: "assets:bank:exfederal",
+            value: "assets:bank:exfederal",
+            description: "Federal Bank - Expense Account",
+          },
+
+          // Saving Subcategories Account
+          {
+            name: "assets:bank:svsbi:home",
+            value: "assets:bank:svsbi:home",
+            description: "SBI Savings - Home Fund",
+          },
+          {
+            name: "assets:bank:svsbi:creditors:akansha",
+            value: "assets:bank:svsbi:creditors:akansha",
+            description: "SBI Savings - Creditor Akansha",
+          },
+
+          // Personal Reserve Account (Secret Reserve)
+          {
+            name: "assets:bank:reserve:union:personal",
+            value: "assets:bank:reserve:union:personal",
+            description: "Union Bank - Personal Reserve Account",
+          },
+          {
+            name: "assets:bank:reserve:union:home",
+            value: "assets:bank:reserve:union:home",
+            description: "Union Bank - Home Reserve Account",
+          },
+
+          // Emergency Fund Account
+          {
+            name: "assets:bank:emidfc",
+            value: "assets:bank:emidfc",
+            description: "IDFC - Emergency Fund Account",
+          },
+
+          // Income Subcategories sources
+          {
+            name: "assets:bank:inicici",
+            value: "assets:bank:inicici",
+            description: "ICICI Bank - Income Account",
+          },
+          // Income sources
+          {
+            name: "income:source:salary",
+            value: "income:source:salary",
+            description: "Salary Income Received",
+          },
+          {
+            name: "income:source:dividend",
+            value: "income:source:dividend",
+            description: "Dividend Income Received",
+          },
+          {
+            name: "income:source:freelancing",
+            value: "assets:bank:income:icici:profit",
+            description: "ICICI Bank - Profit Income",
+          },
+
+          // Expense Accounts (Similar to Income Accounts)
+          {
+            name: "expense:groceries",
+            value: "expense:groceries",
+            description: "Groceries Expense",
+          },
+          {
+            name: "expense:personal:lifestyle:clothes",
+            value: "expense:personal:lifestyle:clothes",
+            description: "Clothing Lifestyle Expense",
+          },
+          {
+            name: "expense:personal:lifestyle:shoes",
+            value: "expense:personal:lifestyle:shoes",
+            description: "Footwear Lifestyle Expense",
+          },
+          {
+            name: "expense:personal:office:parties",
+            value: "expense:personal:office:parties",
+            description: "Office Parties Expense",
+          },
+          {
+            name: "expense:personal:office:food",
+            value: "expense:personal:office:food",
+            description: "Office Food Expense",
+          },
+          {
+            name: "expense:personal:office:drinks",
+            value: "expense:personal:office:drinks",
+            description: "Office Drinks Expense",
+          },
+          {
+            name: "expense:personal:food",
+            value: "expense:personal:food",
+            description: "Personal Food Expense",
+          },
+          {
+            name: "expense:personal:drinks",
+            value: "expense:personal:drinks",
+            description: "Personal Drinks Expense",
+          },
+          {
+            name: "expense:travel",
+            value: "expense:travel",
+            description: "Travel Expenses",
+          },
+          {
+            name: "expense:household:monthly",
+            value: "expense:household:monthly",
+            description: "Household Monthly Expenses",
+          },
+          {
+            name: "expense:household:rent",
+            value: "expense:household:rent",
+            description: "Household Rent",
+          },
+          {
+            name: "expense:utilities",
+            value: "expense:utilities",
+            description: "Utility Expenses",
+          },
+          {
+            name: "expense:entertainment",
+            value: "expense:entertainment",
+            description: "Entertainment Expenses",
+          },
+          {
+            name: "expense:medical",
+            value: "expense:medical",
+            description: "Medical Expenses",
+          },
+          {
+            name: "expense:education",
+            value: "expense:education",
+            description: "Education Expenses",
+          },
+
+          // *Investments* (under assets)
+          {
+            name: "assets:bank:ivaxis:mf",
+            value: "assets:bank:ivaxis:mf",
+            description: "Axis Bank - Mutual Funds Investment",
+          },
+          {
+            name: "assets:bank:ivaxis:trading",
+            value: "assets:bank:ivaxis:trading",
+            description: "Axis Bank - Trading Investments",
+          },
+          {
+            name: "assets:bank:ivaxis:longterm",
+            value: "assets:bank:ivaxis:longterm",
+            description: "Axis Bank - Long-term Investments",
+          },
+          {
+            name: "assets:bank:ivaxis:gold",
+            value: "assets:bank:ivaxis:gold",
+            description: "Axis Bank - Gold Investments",
+          },
+          {
+            name: "assets:investments:stocks",
+            value: "assets:investments:stocks",
+            description: "Stocks Investments",
+          },
+          {
+            name: "assets:investments:mutual_funds:coin",
+            value: "assets:investments:mutual_funds:coin",
+            description: "Coin Mutual Funds Investments",
+          },
+          {
+            name: "assets:investments:mutual_funds:groww",
+            value: "assets:investments:mutual_funds:groww",
+            description: "Groww Mutual Funds Investments",
+          },
+          {
+            name: "assets:investments:mutual_funds:dhan",
+            value: "assets:investments:mutual_funds:dhan",
+            description: "Dhan Mutual Funds Investments",
+          },
+          {
+            name: "assets:investments:real_estate",
+            value: "assets:investments:real_estate",
+            description: "Real Estate Investments",
+          },
+          {
+            name: "assets:investments:crypto",
+            value: "assets:investments:crypto",
+            description: "Cryptocurrency Investments",
+          },
+          {
+            name: "assets:investments:trading",
+            value: "assets:investments:trading",
+            description: "Trading Investments",
+          },
+
+          {
+            name: "assets:electronics:macbook",
+            value: "assets:electronics:macbook",
+            description: "Asset Macbook.",
+          },
+
+          // Liability Accounts
+          {
+            name: "liabilities:credit_card:idfc",
+            value: "liabilities:credit_card:idfc",
+            description: "Credit Card Liabilities IDFC",
+          },
+          {
+            name: "liabilities:credit_card:axis",
+            value: "liabilities:credit_card:axis",
+            description: "Credit Card Liabilities AXIS",
+          },
+
+          {
+            name: "liabilities:creditors:akansha",
+            value: "liabilities:creditors:akansha",
+            description: "Creditor - Akansha",
+          },
+          {
+            name: "liabilities:creditors:salim",
+            value: "liabilities:creditors:salim",
+            description: "Creditor - Salim",
+          },
+          {
+            name: "liabilities:loan:personal",
+            value: "liabilities:loan:personal",
+            description: "Personal Loan Liabilities",
+          },
+          {
+            name: "liabilities:loan:car",
+            value: "liabilities:loan:car",
+            description: "Car Loan Liabilities",
+          },
+          {
+            name: "liabilities:loan:mortgage",
+            value: "liabilities:loan:mortgage",
+            description: "Mortgage Loan Liabilities",
+          },
+
+          // *Investments (Specific)* - Additional tracking for more detailed categories
+          {
+            name: "assets:investments:stocks:long_term",
+            value: "assets:investments:stocks:long_term",
+            description: "Long-term Stocks Investments",
+          },
+          {
+            name: "assets:investments:stocks:short_term",
+            value: "assets:investments:stocks:short_term",
+            description: "Short-term Stocks Investments",
+          },
+          {
+            name: "assets:investments:real_estate:rentals",
+            value: "assets:investments:real_estate:rentals",
+            description: "Real Estate Rentals Investments",
+          },
+          {
+            name: "assets:investments:real_estate:capital_gain",
+            value: "assets:investments:real_estate:capital_gain",
+            description: "Real Estate Capital Gain Investments",
+          },
+          {
+            name: "assets:investments:crypto:btc",
+            value: "assets:investments:crypto:btc",
+            description: "Bitcoin Investments",
+          },
+          {
+            name: "assets:investments:crypto:eth",
+            value: "assets:investments:crypto:eth",
+            description: "Ethereum Investments",
+          },
+
+          // Equity self funded account
+          {
+            name: "office:salary",
+            value: "equity:opening-balance",
+            description: "Equity Opening Balance",
+          },
+          {
+            name: "equity:opening-balance",
+            value: "equity:opening-balance",
+            description: "Equity Opening Balance",
+          },
+        ];
+        const maxLength = 28;
+
+        function createGlobalEntrySystem() {
+          const trnsData = {
+            credit: 0,
+            debit: 0,
+            entries: [],
+            total_credit: 0,
+            total_debit: 0,
+            trns_title: "",
+            trns_date: "",
+          };
+
+          function put(newEntry) {
+            const { trns_type } = newEntry;
+            if (trns_type == "debit") {
+              if (trnsData["debit"] < 5) {
+                trnsData["entries"].push(newEntry);
+                trnsData["debit"] += 1;
+                trnsData["total_debit"] += newEntry["amount"];
+              }
+            } else {
+              if (trnsData["credit"] < 5) {
+                trnsData["entries"].push(newEntry);
+                trnsData["credit"] += 1;
+                trnsData["total_credit"] += newEntry["amount"];
+              }
+            }
+          }
+
+          function getEntries() {
+            return {
+              entries: trnsData["entries"],
+            };
+          }
+
+          function setTitle(value) {
+            trnsData["trns_title"] = value;
+          }
+          function setDate(value) {
+            trnsData["trns_date"] = value;
+          }
+
+          return {
+            put,
+            getEntries: () => trnsData["entries"],
+            getCreditNo: () => trnsData["credit"],
+            getDebitNo: () => trnsData["debit"],
+            setTitle,
+            getTitle: () => trnsData["trns_title"],
+            setDate,
+            getDate: () => trnsData["trns_date"],
+          };
+        }
+
+        const globalEntry = createGlobalEntrySystem();
+
+        async function generateTransactionObjForSumbmission() {
+          const currEntries = globalEntry.getEntries();
+          const trnsTitle = globalEntry.getTitle();
+          const trnsDate = globalEntry.getDate();
+          const trns = {};
+          trns["timestamp"] = Date.now();
+          trns["accounts"] = { debit: [], credit: [] };
+          trns["description"] = trnsTitle;
+          trns["date"] = trnsDate;
+
+          currEntries.forEach((entry) => {
+            const entryObj = {
+              account_label: entry["acc"],
+              amount: entry["amount"],
+            };
+            if (entry["trns_type"] == "debit") {
+              trns["accounts"]["debit"].push(entryObj);
+            } else {
+              trns["accounts"]["credit"].push(entryObj);
+            }
+          });
+          TransactionProcessor.updateGlobalStatus({
+            text: "Transaction is generated. Processing and uploading to stoarage is in progress.",
+            status: "warning",
+          });
+          const final_result = await TransactionProcessor.processTransactions(
+            trns
+          );
+          if (final_result.success) {
+            TransactionProcessor.updateGlobalStatus({
+              text: "Transaction is processed and uploaded to stoarage successfully.",
+              status: "success",
+            });
+            // cleanupProcess();
+            return;
+          }
+          updateGlobalStatus({
+            text: "Transaction processing and uploading failed",
+            status: "failed",
+          });
+        }
+
+        function finalFormSubmit() {
+          const title_in = document.getElementById("trns_title_value");
+          const date_in = document.getElementById("trns_date_value");
+          const value = title_in.value;
+          const date = date_in.value;
+          if (!value) {
+            alert("Please enter title");
+          }
+          globalEntry.setTitle(value);
+          globalEntry.setDate(date.replaceAll("-", "/"));
+          generateTransactionObjForSumbmission();
+        }
+        function limit_string(text) {
+          // Split the text into words
+
+          if (text.length <= maxLength) {
+            return text;
+          }
+          const words = text.split("");
+
+          // Ensure the string has more than maxWords
+          // Join the first maxWords words and add ellipsis
+          const truncatedText = words.slice(0, maxLength).join("") + "...";
+
+          // If the string is within the limits or the truncation process failed
+          // Return the original string
+          return truncatedText;
+        }
+
+        function listTransaction() {
+          const entries = globalEntry.getEntries();
+          const parent = document.getElementById("trns_listing_container");
+          const title = document.createElement("h4");
+          title.classList.add("entries_title");
+          title.textContent = "Transactions";
+          parent.appendChild(title);
+          entries.forEach((transaction) => {
+            const entryDiv = document.createElement("div");
+            entryDiv.classList.add("trns_individual_entry");
+
+            const idSpan = document.createElement("span");
+            if (transaction.trns_type == "debit") {
+              idSpan.classList.add("trns_debit_transaction");
+            } else {
+              idSpan.classList.add("trns_credit_transaction");
+            }
+            idSpan.setAttribute("user-unique-id", transaction.acc);
+            idSpan.textContent = transaction.acc_name;
+
+            const amountSpan = document.createElement("span");
+            amountSpan.setAttribute("user-unique-id", transaction.amount);
+            amountSpan.innerHTML = formatIndianCurrency(transaction.amount);
+
+            entryDiv.appendChild(idSpan);
+            entryDiv.appendChild(amountSpan);
+            parent.appendChild(entryDiv);
+          });
+        }
+
+        function lock_entries() {
+          start_process("login", "_j_lhs_sec", "j_trns_form_sec", {
+            text: "Review Transaction once in RHS.",
+            status: "info",
+          });
+          listTransaction();
+        }
+        // Create the SVG element
+        const createSvgElement = () => {
+          // Create the namespace for SVG
+          const xmlns = "http://www.w3.org/2000/svg";
+
+          // Create the SVG element
+          const svg = document.createElementNS(xmlns, "svg");
+          svg.setAttribute("xmlns", xmlns);
+          svg.setAttribute("width", "18");
+          svg.setAttribute("height", "18");
+          svg.setAttribute("viewBox", "0 0 24 24");
+          svg.setAttribute("fill", "none");
+          svg.setAttribute("stroke", "#666");
+          svg.setAttribute("stroke-width", "1.5");
+          svg.setAttribute("stroke-linecap", "round");
+          svg.setAttribute("stroke-linejoin", "round");
+          svg.setAttribute("class", "feather feather-file-text");
+
+          // Add the path element
+          const path = document.createElementNS(xmlns, "path");
+          path.setAttribute(
+            "d",
+            "M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+          );
+          svg.appendChild(path);
+
+          // Add the polyline element
+          const polyline1 = document.createElementNS(xmlns, "polyline");
+          polyline1.setAttribute("points", "14 2 14 8 20 8");
+          svg.appendChild(polyline1);
+
+          // Add the first line element
+          const line1 = document.createElementNS(xmlns, "line");
+          line1.setAttribute("x1", "16");
+          line1.setAttribute("y1", "13");
+          line1.setAttribute("x2", "8");
+          line1.setAttribute("y2", "13");
+          svg.appendChild(line1);
+
+          // Add the second line element
+          const line2 = document.createElementNS(xmlns, "line");
+          line2.setAttribute("x1", "16");
+          line2.setAttribute("y1", "17");
+          line2.setAttribute("x2", "8");
+          line2.setAttribute("y2", "17");
+          svg.appendChild(line2);
+
+          // Add the second polyline element
+          const polyline2 = document.createElementNS(xmlns, "polyline");
+          polyline2.setAttribute("points", "10 9 9 9 8 9");
+          svg.appendChild(polyline2);
+
+          return svg;
+        };
+
+        function checkEnbaleBtn() {
+          const debitTrns = globalEntry.getDebitNo();
+          const creditTrns = globalEntry.getCreditNo();
+
+          if (debitTrns > 0 && creditTrns > 0) {
+            const lockBtn = document.getElementById("lock-trns-btn");
+            if (lockBtn) {
+              lockBtn.disabled = false;
+              lockBtn.classList.toggle("diable_locking_btn");
+            }
+          }
+        }
+        function createFileElement(file) {
+          const accWrapper = document.createElement("div");
+          accWrapper.classList.add(["account_list_wrapper"]);
+
+          const trnsTypeWrapper = document.createElement("div");
+          trnsTypeWrapper.classList.add(["trns_btn_wrapper"]);
+
+          const debitBtn = document.createElement("button");
+          const creditBtn = document.createElement("button");
+          debitBtn.innerText = "Debit";
+          creditBtn.innerText = "Credit";
+          debitBtn.classList.add("debit_btn_cta");
+          debitBtn.classList.add("trns_type_btn");
+
+          creditBtn.classList.add("credit_btn_cta");
+          creditBtn.classList.add("trns_type_btn");
+
+          function createInputField(action, file) {
+            // Remove any existing input wrapper
+            const existingInputWrapper =
+              accWrapper.querySelector(".input_wrapper");
+            if (existingInputWrapper) {
+              existingInputWrapper.remove();
+            }
+            const inputWrapper = document.createElement("div");
+            inputWrapper.classList.add("input_wrapper");
+
+            const inputField = document.createElement("input");
+            inputField.type = "number";
+            inputField.autofocus = true;
+            inputField.placeholder = "₹ Enter amount";
+            inputField.classList.add("amount_input");
+
+            const submitBtn = document.createElement("button");
+            submitBtn.innerText = "Submit";
+            submitBtn.classList.add("submit_btn");
+
+            // Add event listener for submit button
+            submitBtn.addEventListener("click", () => {
+              console.log(globalEntry.getEntries());
+              const amount = inputField.value.trim();
+              if (amount) {
+                inputField.value = "";
+                console.log(`Amount: ${amount}, Action: ${action}`);
+                accWrapper.classList.add("block_entry");
+                globalEntry.put({
+                  trns_type: action,
+                  acc: file.value,
+                  acc_name: file.description,
+                  amount: parseInt(amount),
+                });
+                inputWrapper.style.display = "none "
+                checkEnbaleBtn();
+              } else {
+                alert("Please enter a valid amount.");
+              }
+            });
+
+            inputWrapper.appendChild(inputField);
+            inputWrapper.appendChild(submitBtn);
+
+            // Append to the account wrapper
+            accWrapper.appendChild(inputWrapper);
+            return inputWrapper;
+          }
+
+          // Event listeners for buttons
+          debitBtn.addEventListener("click", () => {
+            // Add entry in global field
+            // globalEntry.put({trns_type:"debit",acc:file.value,acc_name:file.description});
+            // accWrapper.classList.add("block_entry");
+            trnsTypeWrapper.removeChild(debitBtn);
+            trnsTypeWrapper.removeChild(creditBtn);
+            createInputField("debit", file);
+          });
+
+          creditBtn.addEventListener("click", () => {
+            // createInputField("Credit");
+            // globalEntry.put({trns_type:"credit",acc:file.value,acc_name:file.description})
+            // accWrapper.classList.add("block_entry");
+            trnsTypeWrapper.removeChild(debitBtn);
+            trnsTypeWrapper.removeChild(creditBtn);
+            createInputField("credit", file);
+          });
+
+          trnsTypeWrapper.appendChild(debitBtn);
+          trnsTypeWrapper.appendChild(creditBtn);
+
+          const fileWrapper = document.createElement("div");
+          fileWrapper.className = "file_wrapper";
+          fileWrapper.title = file.description;
+
+          // Add click event listener
+          //   fileWrapper.addEventListener("click", file_switching_process);
+
+          fileWrapper.appendChild(createSvgElement());
+          fileWrapper.setAttribute("trns-account-name", "");
+          const spanElement = document.createElement("span");
+          spanElement.innerText = limit_string(file.description, 20);
+
+          //   if (file.id === currdoc.id) {
+          //     spanElement.style.color = "var(--app-color-code)";
+          //   }
+
+          fileWrapper.appendChild(spanElement);
+          accWrapper.appendChild(fileWrapper);
+          accWrapper.appendChild(trnsTypeWrapper);
+
+          return accWrapper;
+        }
+
+        function createMappedAccounts() {
+          return j_allowed_accounts.map((item) => {
+            const ele = createFileElement(item);
+            // const fileWrapper = document.createElement("div");
+            // fileWrapper.className = "file_wrapper";
+            // fileWrapper.innerText = limit_string(item["name"], 20); // Set text
+            return ele;
+          });
+        }
+
+        const accountsSection = document.getElementById("fin-accounts-sec");
+
+        // Append each span element to the container
+        createMappedAccounts().forEach((ele) => {
+          accountsSection.appendChild(ele);
+        });
+
+        //   kahi change nko karu mi kartoy
+
+        function drop_show() {
+          let open_drop = document.getElementById("input_data").value;
+          const element_drop = document.getElementsByClassName(
+            "drop_down_for_input_data"
+          );
+          let matchedAccounts;
+          const searchaccount = document.getElementById("search-accounts-sec");
+          if (open_drop) {
+            element_drop[0].style.display = "block";
+            open_drop = open_drop.toLowerCase();
+
+            // Find matching accounts
+            matchedAccounts = j_allowed_accounts.filter((account) =>
+              account.name.includes(open_drop)
+            );
+            // Clear previous search results
+            searchaccount.innerHTML = "";
+
+            // Append each span element to the container
+            matchedAccounts.forEach((file) => {
+              const element = createFileElement(file);
+              searchaccount.appendChild(element);
+            });
+
+            if (matchedAccounts.length == 0 ) {
+                const span = document.createElement("span")
+                span.textContent = "No result Found !"
+                span.style.paddingLeft = "45px"
+                searchaccount.appendChild(span)
+            }
+          } else {
+            element_drop[0].style.display = "none";
+            // Clear previous search results
+            searchaccount.innerHTML = "";
+
+            matchedAccounts = [];
+          }
+        }
+
+        drop_show();
+      </script>
+      <script src="jeren-block-hide.js"></script>
+    </div>
+  </body>
 </html>

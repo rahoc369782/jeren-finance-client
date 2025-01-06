@@ -1,5 +1,0 @@
-              360500  assets:bank
-              150000    reserve:union:home
-              210500    svsbi:home
---------------------
-              360500
