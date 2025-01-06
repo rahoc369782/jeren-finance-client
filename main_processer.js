@@ -2,7 +2,7 @@ const TransactionProcessor = (() => {
   // Private functions and utilities
   function configManager() {
     const encryptedToken =
-      "Z2hwX2F1cERTY2VtMElkQkNaanMwcUdWNzlNSzBBcWZsejRjaGhVUA==";
+      window.localStorage.getItem("token");
 
     const decryptToken = () => atob(encryptedToken);
 
