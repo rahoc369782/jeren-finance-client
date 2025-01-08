@@ -78,6 +78,9 @@
 .j_rhs_section {
     flex-grow: 1;
     padding: 0px 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 .j_rhs_section .jeren_trns_form_container {
 
@@ -240,16 +243,16 @@
     background-color: #075E54;
   }
   #trns_listing_container {
-    padding-top: 10px;
+    /* padding-top: 10px; */
   }
   #trns_listing_container span {
     font-size: 12px;
-
+    padding-bottom: 4px;
   }
   #trns_listing_container h4 {
     font-size: 14px;
     color:#424245;
-    padding-bottom: 8px;
+    padding: 10px 0px 8px 0px;
   }
   .trns_debit_transaction {
     color: #DF6D2D;
@@ -320,6 +323,15 @@
     font-size: 16px;
     font-weight: 600;
     color: var(--app-main-color);
+}
+
+.finance_balance_container {
+    /* background-color: #eee; */
+}
+
+.finance_balance_container h3 {
+  font-size: 14px;
+  font-weight: 600;
 }
   /* Mobile set View */
   
