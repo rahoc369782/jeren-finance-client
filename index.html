@@ -21,6 +21,8 @@
     <!-- <link rel="stylesheet" href="/src/styles/plans.css"> -->
     <link rel="stylesheet" href="login.css" />
     <link rel="stylesheet" href="jeren.index.css" />
+    <link rel="stylesheet" href="goaltrc.css" />
+
     <script src="main_processer.js"></script>
     <style></style>
   </head>
@@ -152,7 +154,10 @@
               <div id="fin-accounts-sec"></div>
             </div>
             <div class="j_lhs_section_two">
-              <div class="form_btn input_spacing">
+              <div class="transaction_section_note">
+                <span id="transaction_selected"></span>
+              </div>
+              <div class="form_btn lock_btn">
                 <button
                   id="lock-trns-btn"
                   disabled
@@ -259,6 +264,25 @@
                 </div>
               </div>
             </div>
+            <!-- <table>
+              <thead>
+                <tr>
+                  <th>Goals</th>
+                  <th>Total Days</th>
+                  <th>Total Hours</th>
+                  <th>Used Days</th>
+                  <th>Inhand Days</th>
+                  <th>Used Hours</th>
+                  <th>Inhand Hours</th>
+                  <th>Used Time (%)</th>
+                  <th>Inhand Time (%)</th>
+                  {/* <th>Status</th> */} 
+                  <th>State</th>
+                  <th>Controlled</th>
+                </tr>
+              </thead>
+              <tbody id="table-body"></tbody>
+            </table> -->
           </section>
         </main>
       </div>
@@ -368,8 +392,8 @@
             description: "Personal Drinks Expense",
           },
           {
-            name: "expense:travel",
-            value: "expense:travel",
+            name: "expense:personal:transport",
+            value: "expense:personal:transport",
             description: "Travel Expenses",
           },
           {
@@ -386,6 +410,11 @@
             name: "expense:utilities",
             value: "expense:utilities",
             description: "Utility Expenses",
+          },
+          {
+            name: "expense:donation",
+            value: "expense:donation",
+            description: "Donation Expenses",
           },
           {
             name: "expense:entertainment",
@@ -769,8 +798,13 @@
         };
 
         function checkEnbaleBtn() {
+          // Display note first
+          
           const debitTrns = globalEntry.getDebitNo();
           const creditTrns = globalEntry.getCreditNo();
+          const noteContainer = document.getElementById("transaction_selected");
+          const note = `${debitTrns} Debit & ${creditTrns} Credit Transactions`;
+          noteContainer.innerText = note;
 
           if (debitTrns > 0 && creditTrns > 0) {
             const lockBtn = document.getElementById("lock-trns-btn");
@@ -952,6 +986,8 @@
         drop_show();
       </script>
       <script src="jeren-block-hide.js"></script>
+      <script src="goal_trakcer.js"></script>
+
     </div>
   </body>
 </html>

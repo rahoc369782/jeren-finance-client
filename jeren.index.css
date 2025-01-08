@@ -102,8 +102,19 @@
 .j_lhs_section_two {
     flex-basis: 200px;
     padding: 5px;
+    border-top: 1px solid #eee;
+    flex-basis: 200px;
+    padding: 5px;
+    border-top: 1px solid #eee;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
 }
 
+.transaction_section_note span {
+  font-size: 12px;
+  font-weight: 600;
+}
 .file_wrapper {
     display: flex;
     align-items: center;
@@ -114,7 +125,9 @@
     margin-top: 1px;
     margin-bottom: 1px;
   }
-  
+  .lock_btn {
+    padding: 10px 0px;
+  }
   .file_wrapper:hover {
     background-color: #f1f1f1;
     cursor: pointer;
